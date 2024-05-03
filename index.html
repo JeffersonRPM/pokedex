@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../src/favicon/favicon.png">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap">
+    <title>Pokédex</title>
+</head>
+
+<body class="body-bg main__bg">
+    <container class="flex">
+        <img src="#" alt="Pokemon" class="pokemon__image">
+        <img class="loader">
+        <img src="../src/img/pokedex-desktop.png" alt="Pokédex" class="pokedex pokedex-desktop">
+        <img src="../src/img/pokedex-mobile.png" alt="Pokédex" class="pokedex pokedex-mobile">
+
+        <h1 class="pokemon__data">
+            <span class="pokemon__number"></span>
+            <span class="pokemon__name"></span>
+        </h1>
+
+        <form class="form">
+            <input type="search" class="input__search" placeholder="Busque por Nome ou Número" required />
+        </form>
+        <ul class="suggestions hidden"></ul>
+
+        <div class="btns">
+            <button class="btn btn-prev">&lt;</button>
+            <button class="btn btn-next">&gt;</button>
+        </div>
+
+        <div class="btns">
+            <button class="btn-compare">Comparar</button>
+        </div>
+
+        <h1 class="status effect-text">Status</h1>
+        <div class="flex-status">
+            <ul class="stats effect-text">
+                <li>Vida</li>
+                <li>Ataque</li>
+                <li>Defesa</li>
+                <li>Ataque especial</li>
+                <li>Defesa especial</li>
+                <li>Velocidade</li>
+                <li>Peso</li>
+                <li>Altura</li>
+            </ul>
+            <ul class="re-stats effect-text">
+                <li class="pokemon__hp"></li>
+                <li class="pokemon__attack"></li>
+                <li class="pokemon__defense"></li>
+                <li class="pokemon__special__attack"></li>
+                <li class="pokemon__special__defense"></li>
+                <li class="pokemon__speed"></li>
+                <li class="pokemon__weight"></li>
+                <li class="pokemon__height"></li>
+            </ul>
+        </div>
+        <div class="pokemon__type">
+            <ul class="effect-text"></ul>
+        </div>
+
+        <button>
+            <img src="../src/img/gear.png" alt="menu de opções" class="gear">
+        </button>
+
+        <menu class="menu-flex bg-menu">
+            <div class="div-flex">
+                <p>Modo Escuro</p>
+                <input type="checkbox" id="chk-1" />
+                <label for="chk-1" class="switch">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="div-flex">
+                <p>Pokemon Shiny</p>
+                <input type="checkbox" id="chk-2" />
+                <label for="chk-2" class="switch">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="div-flex">
+                <p>Pokemon Verso</p>
+                <input type="checkbox" id="chk-3" />
+                <label for="chk-3" class="switch">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </menu>
+
+        <compare class="overlay show">
+            <container class="compare-container compare__container">
+                <h1 class="compare-pokemons">Comparar Pokemons</h1>
+                <img src="../src/img/vs.png" alt="Icone de VS usado para indicar a luta dos pokemons" class="compare-vs vs__compare">
+                <img src="../src/img/vs-darkmode.png" alt="Icone de VS usado para indicar a luta dos pokemons" class="compare-vs vs__dark__compare">
+
+                <button>
+                    <img src="../src/img/x.png" alt="Fechar aba de comparação entre Pokemons"
+                        class="compare-close compare__close">
+                </button>
+
+                <img class="loader__compare1">
+                <img class="loader__compare2">
+
+                <img src="../src/img/defeat.png" alt="Pokemon 1 Derrotado" class="defeat__compare1">
+                <img src="../src/img/defeat.png" alt="Pokemon 2 Derrotado" class="defeat__compare2">
+                <img src="../src/img/draw.png" alt="Empate" class="draw__compare1">
+                <img src="../src/img/draw.png" alt="Empate" class="draw__compare2">
+                <img src="../src/img/victory.png" alt="Vitória do Pokemon 1" class="victory__compare1">
+                <img src="../src/img/victory.png" alt="Vitória do Pokemon 2" class="victory__compare2">
+
+                <div class="compare mt-compare">
+                    <form class="compare-form1">
+                        <input type="search" class="input__search__compare1" placeholder="Nome ou Número" required />
+                    </form>
+
+                    <div class="btns-compare">
+                        <button class="btn-compare-prev btn-compare-prevC1">&lt;</button>
+                        <button class="btn-compare-next btn-compare-nextC1">&gt;</button>
+                    </div>
+
+                    <ul class="suggestions__compare1 hidden"></ul>
+
+                    <img src="#" alt="Pokemon" class="pokemon__image__compare1">
+
+                    <h2 class="pokemon__data__compare1">
+                        <span class="pokemon__number__compare1"></span>
+                        <span class="pokemon__name__compare1"></span>
+                    </h2>
+
+                    <div class="compare-flex-status">
+                        <ul class="compare-stats effect-text">
+                            <li>Vida</li>
+                            <li>Ataque</li>
+                            <li>Defesa</li>
+                            <li>Ataque especial</li>
+                            <li>Defesa especial</li>
+                            <li>Velocidade</li>
+                        </ul>
+                        <ul class="compare-re-stats effect-text">
+                            <li class="pokemon__hp__compare1"></li>
+                            <li class="pokemon__attack__compare1"></li>
+                            <li class="pokemon__defense__compare1"></li>
+                            <li class="pokemon__special__attack__compare1"></li>
+                            <li class="pokemon__special__defense__compare1"></li>
+                            <li class="pokemon__speed__compare1"></li>
+                        </ul>
+                    </div>
+                    <div class="pokemon__type__compare1">
+                        <ul class="effect-text"></ul>
+                    </div>
+                </div>
+                <div class="compare">
+                    <form class="compare-form2">
+                        <input type="search" class="input__search__compare2" placeholder="Nome ou Número" required />
+                    </form>
+
+                    <div class="btns-compare">
+                        <button class="btn-compare-prev btn-compare-prevC2">&lt;</button>
+                        <button class="btn-compare-next btn-compare-nextC2">&gt;</button>
+                    </div>
+
+                    <img src="#" alt="Pokemon" class="pokemon__image__compare2">
+
+                    <h2 class="pokemon__data__compare2">
+                        <span class="pokemon__number__compare2"></span>
+                        <span class="pokemon__name__compare2"></span>
+                    </h2>
+
+                    <ul class="suggestions__compare2 hidden"></ul>
+
+                    <div class="compare-flex-status">
+                        <ul class="compare-stats effect-text">
+                            <li>Vida</li>
+                            <li>Ataque</li>
+                            <li>Defesa</li>
+                            <li>Ataque especial</li>
+                            <li>Defesa especial</li>
+                            <li>Velocidade</li>
+                        </ul>
+                        <ul class="compare-re-stats effect-text">
+                            <li class="pokemon__hp__compare2"></li>
+                            <li class="pokemon__attack__compare2"></li>
+                            <li class="pokemon__defense__compare2"></li>
+                            <li class="pokemon__special__attack__compare2"></li>
+                            <li class="pokemon__special__defense__compare2"></li>
+                            <li class="pokemon__speed__compare2"></li>
+                        </ul>
+                    </div>
+                    <div class="pokemon__type__compare2">
+                        <ul class="effect-text"></ul>
+                    </div>
+                </div>
+            </container>
+        </compare>
+    </container>
+
+    <script src="./public/assets/js/bundle.js"></script>
+</body>
+
+</html>
