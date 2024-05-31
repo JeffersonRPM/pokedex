@@ -67,6 +67,7 @@ O sistema para a Pokédex é uma plataforma interativa que permite aos usuários
 
 <img alt="Pagina inicial da Pokedex" src="./img-git/img-desktop.png">
 <img alt="Combate entre Pokemons" src="./img-git/img-desktop-vs.png">
+<img alt="Informações do Pokemons" src="./img-git/img-desktop-info.png">
 
 ## Documentação de apoio
 
