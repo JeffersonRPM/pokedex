@@ -73,6 +73,8 @@ const pokeLoad = select('.pokedex-desktop-close');
 const pokeDesktop = select('.pokedex-desktop');
 const pokeMobile = select('.pokedex-mobile');
 const flex = select('.flex');
+const infoFight1 = select('.info-fight1');
+const infoFight2 = select('.info-fight2');
 
 const MAX_POKEMON_NUMBER = 649;
 
@@ -84,6 +86,8 @@ let sumC2 = 0;
 let imagesLoaded = 0;
 let fightC1 = [];
 let fightC2 = [];
+let myChart1;
+let myChart2;
 
 // efeito pokédex abrindo
 if (window.innerWidth > 1270) {
@@ -186,22 +190,22 @@ const tipos = {
         'fraqueza': ['água', 'planta', 'gelo']
     },
     'gelo': {
-        'fraqueza': ['fogo', 'luta', 'pedra', 'aço']
+        'fraqueza': ['fogo', 'lutador', 'pedra', 'aço']
     },
     'normal': {
-        'fraqueza': ['luta']
+        'fraqueza': ['lutador']
     },
     'veneno': {
-        'fraqueza': ['terra', 'psíquico']
+        'fraqueza': ['terrestre', 'psíquico']
     },
     'psíquico': {
         'fraqueza': ['inseto', 'fantasma', 'sombrio']
     },
     'pedra': {
-        'fraqueza': ['água', 'planta', 'luta', 'terra', 'aço']
+        'fraqueza': ['água', 'planta', 'lutador', 'terrestre', 'aço']
     },
     'aço': {
-        'fraqueza': ['fogo', 'luta', 'terra']
+        'fraqueza': ['fogo', 'lutador', 'terrestre']
     },
     'água': {
         'fraqueza': ['elétrico', 'planta']
@@ -320,7 +324,6 @@ const renderMainPokemon = async (pokemon) => {
             ulElement.appendChild(liElement);
         });
     }
-
 }
 
 const renderComparePokemon1 = async (pokemon) => {
@@ -351,12 +354,66 @@ const renderComparePokemon1 = async (pokemon) => {
 
         updatePokemonImage(data, images);
 
+        getRadarData1();
+
         status();
 
         element();
 
         inputC1.value = '';
         searchPokemonC1 = data.id;
+
+        // Informações de combate
+        const radarData1 = getRadarData1();
+
+        const ctxFight1 = select('.info-1');
+        const pokemonName1 = data.name.charAt(0).toUpperCase() + data.name.slice(1);
+        infoFight1.innerHTML = pokemonName1;
+
+        if (myChart1) {
+            myChart1.data.datasets[0].data = radarData1;
+            myChart1.update();
+        } else {
+            myChart1 = new Chart(ctxFight1, {
+                type: 'radar',
+                data: {
+                    labels: ['Vida', 'Ataque', 'Ataque especial', 'Velocidade', 'Defesa especial', 'Defesa'],
+                    datasets: [{
+                        data: radarData1,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 255,
+                            pointLabels: {
+                                font: {
+                                    size: 16
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    function getRadarData1() {
+        return [
+            pokemonHpC1.innerHTML,
+            pokemonAttackC1.innerHTML,
+            pokemonSpecialAttackC1.innerHTML,
+            pokemonSpeedC1.innerHTML,
+            pokemonSpecialDefenseC1.innerHTML,
+            pokemonDefenseC1.innerHTML
+        ];
     }
 
     function updatePokemonImage(data, images) {
@@ -480,12 +537,66 @@ const renderComparePokemon2 = async (pokemon) => {
 
         updatePokemonImage(data, images);
 
+        getRadarData2();
+
         status();
 
         element();
 
         inputC2.value = '';
         searchPokemonC2 = data.id;
+
+        // Informações de combate
+        const radarData2 = getRadarData2();
+
+        const ctxFight2 = select('.info-2');
+        const pokemonName2 = data.name.charAt(0).toUpperCase() + data.name.slice(1);
+        infoFight2.innerHTML = pokemonName2;
+
+        if (myChart2) {
+            myChart2.data.datasets[0].data = radarData2;
+            myChart2.update();
+        } else {
+            myChart2 = new Chart(ctxFight2, {
+                type: 'radar',
+                data: {
+                    labels: ['Vida', 'Ataque', 'Ataque especial', 'Velocidade', 'Defesa especial', 'Defesa'],
+                    datasets: [{
+                        data: radarData2,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 255,
+                            pointLabels: {
+                                font: {
+                                    size: 16
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    function getRadarData2() {
+        return [
+            pokemonHpC2.innerHTML,
+            pokemonAttackC2.innerHTML,
+            pokemonSpecialAttackC2.innerHTML,
+            pokemonSpeedC2.innerHTML,
+            pokemonSpecialDefenseC2.innerHTML,
+            pokemonDefenseC2.innerHTML
+        ];
     }
 
     function updatePokemonImage(data, images) {
@@ -955,6 +1066,12 @@ function fight() {
             victoryC2.style.opacity = "0.8";
             victoryC2.style.visibility = "visible";
         }
+
+        select('.status-total1').textContent = sumC1;
+        select('.status-total2').textContent = sumC2;
+        select('.buff-debuff1').textContent = sumC1Modified.toFixed(0);
+        select('.buff-debuff2').textContent = sumC2Modified.toFixed(0);
+
     } catch (error) {
         console.error("Ocorreu um erro na luta: ", error);
     }

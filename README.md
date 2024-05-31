@@ -38,7 +38,6 @@ O sistema para a Pokédex é uma plataforma interativa que permite aos usuários
 
 * O sistema deve fornecer uma explicação sobre o resultado do combate. Este campo deve esclarecer como os status e tipos dos Pokemons influenciam o resultado.
 
-
 ## Requisitos Não Funcionais (RNF)
 
 * **Eficiência:** O sistema deve responder a buscas on-line em menos de 5 segundos.

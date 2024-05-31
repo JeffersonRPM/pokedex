@@ -113,8 +113,212 @@
                         class="compare-info compare__info">
                 </button>
 
-                <menu class="flex-info bg-info">
-                    <p>a</p>
+                <menu class="bg-info">
+                    <div class="grid-info">
+                        <div class="flex-info">
+                            <h1 class="info-fight1"></h1>
+                            <div class="graph-adjustment">
+                                <canvas class="info-1"></canvas>
+                            </div>
+                            <div class="flex-status-buff-debuff">
+                                <h2>Status Total: <span class="status-total1"></span></h2>
+                                <img class="compare-interrogation i-status1" src="./src/img/interrogation.png"
+                                    alt="Icone de interrogação explicando o resultado do status">
+                                <div class="i-status1-message">Soma de todos os atributos do Pokemon: Vida + Ataque +
+                                    Defesa + Ataque especial + Defesa especial + Velocidade.
+                                </div>
+                            </div>
+                            <div class="flex-status-buff-debuff">
+                                <h2>Buff/Debuff: <span class="buff-debuff1"></span></h2>
+                                <img class="compare-interrogation i-buff-debuff1" src="./src/img/interrogation.png"
+                                    alt="Icone de interrogação explicando o resultado do buff/debuff">
+                                <div class="i-buff-debuff1-message">Buff: melhoria no status, caso o pokémon tenha
+                                    vantagem elemental é aplicado um buff, multiplicador de 2x no status do Pokémon.
+                                    <br><br>
+                                    Debuff: redução no status, caso o pokemon tenha desvantagem elemental é aplicado um
+                                    debuff, multiplicador de 0.5x no status do Pokémon.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-info">
+                            <h1 class="info-fight2"></h1>
+                            <div class="graph-adjustment">
+                                <canvas class="info-2"></canvas>
+                            </div>
+                            <div class="flex-status-buff-debuff">
+                                <h2>Status Total: <span class="status-total2"></span></h2>
+                                <img class="compare-interrogation i-status2" src="./src/img/interrogation.png"
+                                    alt="Icone de interrogação explicando o resultado do status">
+                                <div class="i-status2-message">Soma de todos os atributos do Pokémon: Vida + Ataque +
+                                    Defesa + Ataque especial + Defesa especial + Velocidade.
+                                </div>
+                            </div>
+                            <div class="flex-status-buff-debuff">
+                                <h2>Buff/Debuff: <span class="buff-debuff2"></span></h2>
+                                <img class="compare-interrogation i-buff-debuff2" src="./src/img/interrogation.png"
+                                    alt="Icone de interrogação explicando o resultado do buff/debuff">
+                                <div class="i-buff-debuff2-message">Buff: melhoria no status, caso o pokemon tenha
+                                    vantagem elemental é aplicado um buff, multiplicador de 2x no status do Pokémon.
+                                    <br><br>
+                                    Debuff: redução no status, caso o pokemon tenha desvantagem elemental é aplicado um
+                                    debuff, multiplicador de 0.5x no status do Pokémon.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div-fraquezas">
+                        <h2>Fraquezas dos Elementos</h2>
+                        <img class="compare-interrogation i-fraquezas" src="./src/img/interrogation.png"
+                            alt="Icone de interrogação explicando as fraquezas dos elementos">
+                        <div class="i-fraquezas-message">
+                            <h1 class="flex-fraquezas-h2">Fraquezas dos Elementos</h1>
+                            <div class="grid-fraquezas">
+                                <div>
+                                    <div class="flex-fraquezas">
+                                        <p class="electric fraqueza-types">Elétrico</p>
+                                        <p class="red">>></p>
+                                        <p class="ground fraqueza-types">Terrestre</p>
+                                    </div>
+
+                                    <div class="flex-fraquezas">
+                                        <p class="normal fraqueza-types">Normal</p>
+                                        <p class="red">>></p>
+                                        <p class="fighting fraqueza-types">Lutador</p>
+                                    </div>
+
+                                    <div class="flex-fraquezas">
+                                        <p class="fairy fraqueza-types">Fada</p>
+                                        <p class="red">>></p>
+                                        <p class="steel fraqueza-types">Aço</p>
+                                        <p class="poison fraqueza-types">Veneno</p>
+                                    </div>
+
+                                    <div class="flex-fraquezas">
+                                        <p class="poison fraqueza-types">Veneno</p>
+                                        <p class="red">>></p>
+                                        <p class="ground fraqueza-types">Terrestre</p>
+                                        <p class="psychic fraqueza-types">Psíquico</p>
+                                    </div>
+
+                                    <div class="flex-fraquezas">
+                                        <p class="ghost fraqueza-types">Fantasma</p>
+                                        <p class="red">>></p>
+                                        <p class="ghost fraqueza-types">Fantasma</p>
+                                        <p class="dark fraqueza-types">Sombrio</p>
+                                    </div>
+
+                                    <div class="flex-fraquezas">
+                                        <p class="water fraqueza-types">Água</p>
+                                        <p class="red">>></p>
+                                        <p class="electric fraqueza-types">Elétrico</p>
+                                        <p class="grass fraqueza-types">Planta</p>
+                                    </div>
+
+                                    <div class="flex-fraquezas">
+                                        <p class="dragon fraqueza-types">Dragão</p>
+                                        <p class="red">>></p>
+                                        <p class="dragon fraqueza-types">Dragão</p>
+                                        <p class="fairy fraqueza-types">Fada</p>
+                                        <p class="ice fraqueza-types">Gelo</p>
+                                    </div>
+
+                                    <div class="flex-fraquezas">
+                                        <p class="fighting fraqueza-types">Lutador</p>
+                                        <p class="red">>></p>
+                                        <p class="flying fraqueza-types">Voador</p>
+                                        <p class="psychic fraqueza-types">Psíquico</p>
+                                        <p class="fairy fraqueza-types">Fada</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex-fraquezas-right">
+                                        <p class="fire fraqueza-types">Fogo</p>
+                                        <p class="red">>></p>
+                                        <p class="water fraqueza-types">Água</p>
+                                        <p class="rock fraqueza-types">Pedra</p>
+                                        <p class="ground fraqueza-types">Terrestre</p>
+                                    </div>
+
+                                    <div class="flex-fraquezas-right">
+                                        <p class="flying fraqueza-types">Voador</p>
+                                        <p class="red">>></p>
+                                        <p class="electric fraqueza-types">Elétrico</p>
+                                        <p class="ice fraqueza-types">Gelo</p>
+                                        <p class="rock fraqueza-types">Pedra</p>
+                                    </div>
+
+                                    <div class="flex-fraquezas-right">
+                                        <p class="ground fraqueza-types">Terrestre</p>
+                                        <p class="red">>></p>
+                                        <p class="water fraqueza-types">Água</p>
+                                        <p class="grass fraqueza-types">Planta</p>
+                                        <p class="ice fraqueza-types">Gelo</p>
+                                    </div>
+
+                                    <div class="flex-fraquezas-right">
+                                        <p class="psychic fraqueza-types">Psíquico</p>
+                                        <p class="red">>></p>
+                                        <p class="bug fraqueza-types">Inseto</p>
+                                        <p class="ghost fraqueza-types">Fantasma</p>
+                                        <p class="dark fraqueza-types">Sombrio</p>
+                                    </div>
+
+                                    <div class="flex-fraquezas-right">
+                                        <p class="bug fraqueza-types">Inseto</p>
+                                        <p class="red">>></p>
+                                        <p class="fire fraqueza-types">Fogo</p>
+                                        <p class="rock fraqueza-types">Pedra</p>
+                                        <p class="flying fraqueza-types">Voador</p>
+                                    </div>
+
+                                    <div class="flex-fraquezas-right">
+                                        <p class="dark fraqueza-types">Sombrio</p>
+                                        <p class="red">>></p>
+                                        <p class="bug fraqueza-types">Inseto</p>
+                                        <p class="fairy fraqueza-types">Fada</p>
+                                        <p class="fighting fraqueza-types">Lutador</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex-fraquezas">
+                                <p class="steel fraqueza-types-three">Aço</p>
+                                <p class="red">>></p>
+                                <p class="fire fraqueza-types-three">Fogo</p>
+                                <p class="fighting fraqueza-types-three">Lutador</p>
+                                <p class="ground fraqueza-types-three">Terrestre</p>
+                            </div>
+
+                            <div class="flex-fraquezas">
+                                <p class="ice fraqueza-types-four">Gelo</p>
+                                <p class="red">>></p>
+                                <p class="fire fraqueza-types-four">Fogo</p>
+                                <p class="fighting fraqueza-types-four">Lutador</p>
+                                <p class="rock fraqueza-types-four">Pedra</p>
+                                <p class="steel fraqueza-types-four">Aço</p>
+                            </div>
+
+                            <div class="flex-fraquezas">
+                                <p class="grass fraqueza-types-five">Planta</p>
+                                <p class="red">>></p>
+                                <p class="fire fraqueza-types-five">Fogo</p>
+                                <p class="ice fraqueza-types-five">Gelo</p>
+                                <p class="poison fraqueza-types-five">Veneno</p>
+                                <p class="flying fraqueza-types-five">Voador</p>
+                                <p class="bug fraqueza-types-five">Inseto</p>
+                            </div>
+
+                            <div class="flex-fraquezas">
+                                <p class="rock fraqueza-types-five">Pedra</p>
+                                <p class="red">>></p>
+                                <p class="water fraqueza-types-five">Água</p>
+                                <p class="grass fraqueza-types-five">Planta</p>
+                                <p class="fighting fraqueza-types-five">Lutador</p>
+                                <p class="ground fraqueza-types-five">Terrestre</p>
+                                <p class="steel fraqueza-types-five">Aço</p>
+                            </div>
+                        </div>
+                    </div>
                 </menu>
 
                 <img class="loader__compare1">
@@ -213,6 +417,7 @@
         </compare>
     </container>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./public/assets/js/bundle.js"></script>
 </body>
 
