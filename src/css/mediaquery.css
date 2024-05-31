@@ -106,7 +106,7 @@
         width: 40px;
         height: 40px;
     }
-    
+
     .loader__compare2 {
         top: 61%;
         left: 45%;
@@ -123,12 +123,7 @@
         display: none;
     }
 
-    .compare-close {
-        width: 20px;
-        height: 20px;
-        margin: 3%;
-    }
-
+    .compare-close,
     .compare-close-dark {
         width: 20px;
         height: 20px;
@@ -191,7 +186,7 @@
     .pokemon__type__compare1,
     .pokemon__type__compare2 {
         transform: translate(15%, 630%);
-    
+
         font-size: clamp(16px, 2vw, 18px);
     }
 
@@ -252,6 +247,67 @@
     .suggestions__compare1 li,
     .suggestions__compare2 li {
         padding: 7px 11px;
+    }
+
+    .compare-info,
+    .compare-info-dark {
+        width: 25px;
+        height: 25px;
+        margin: 2.5%;
+    }
+
+    .flex-info {
+        width: 95%;
+        padding: 20px 10px 10px 10px;
+    }
+
+    .bg-info {
+        width: 96%;
+        height: 95.1%;
+        top: 4%;
+        padding: 10px;
+    }
+
+    .graph-adjustment {
+        height: 280px !important;
+    }
+
+    .grid-info {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .info-fight1,
+    .info-fight2 {
+        margin: 12% 1.5% 1.5% 1.5%;
+    }
+
+    h1.info-fight1,
+    h1.info-fight2 {
+        font-size: clamp(25px, 2vw, 30px);
+    }
+
+    h1.info-fight2 {
+        transform: translate(0%, 1250%);
+    }
+
+    .h2-status-total1,
+    .h2-status-total2,
+    .h2-buff-debuff1,
+    .h2-buff-debuff2 {
+        font-size: clamp(22px, 2vw, 25px);
+    }
+
+    .flex-status-buff-debuff {
+        margin-bottom: 1px;
+    }
+
+    .compare-interrogation {
+        display: none;
+    }
+
+    .div-fraquezas {
+        display: none;
     }
 }
 
@@ -364,7 +420,7 @@
         width: 50px;
         height: 50px;
     }
-    
+
     .loader__compare2 {
         top: 63%;
         left: 45%;
@@ -379,14 +435,14 @@
     }
 
     .compare-close {
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
         margin: 3%;
     }
 
     .compare-close-dark {
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
         margin: 3%;
         padding: 0.5%;
     }
@@ -512,6 +568,67 @@
     .suggestions__compare2 li {
         padding: 9px 11px;
     }
+
+    .compare-info,
+    .compare-info-dark {
+        width: 30px;
+        height: 30px;
+        margin: 2.5%;
+    }
+
+    .flex-info {
+        width: 98%;
+        padding: 15px 10px 10px 10px;
+    }
+
+    .bg-info {
+        width: 96%;
+        height: 94.5%;
+        top: 4.5%;
+        padding: 10px;
+    }
+
+    .graph-adjustment {
+        height: 400px !important;
+    }
+
+    .grid-info {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .info-fight1,
+    .info-fight2 {
+        margin: 9% 1.5% 1.5% 1.5%;
+    }
+
+    h1.info-fight1,
+    h1.info-fight2 {
+        font-size: clamp(30px, 2vw, 32px);
+    }
+
+    h1.info-fight2 {
+        transform: translate(0%, 1220%);
+    }
+
+    .h2-status-total1,
+    .h2-status-total2,
+    .h2-buff-debuff1,
+    .h2-buff-debuff2 {
+        font-size: clamp(23px, 2vw, 25px);
+    }
+
+    .flex-status-buff-debuff {
+        margin-bottom: 1px;
+    }
+
+    .compare-interrogation {
+        display: none;
+    }
+
+    .div-fraquezas {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 1270px) and (max-width: 1760px) {
@@ -609,10 +726,11 @@
         transform: translate(0%, 20%);
     }
 
-    .compare-close {
+    .compare-close,
+    .compare-close-dark {
         width: 30px;
         height: 30px;
-        margin: 3%;
+        margin: 2.5%;
     }
 
     .compare-container {
@@ -725,4 +843,88 @@
     .suggestions__compare2 li {
         padding: 7px 11px;
     }
+
+    .compare-info,
+    .compare-info-dark {
+        width: 35px;
+        height: 35px;
+        margin: 2.3%;
+    }
+
+    .flex-info {
+        width: 95%;
+    }
+
+    .bg-info {
+        width: 95%;
+        height: 88%;
+        left: 2.5%;
+        top: 9%;
+    }
+
+    .info-fight1,
+    .info-fight2 {
+        margin: 7% 1.5% 1.5% 1.5%;
+    }
+
+    .graph-adjustment {
+        height: 350px;
+        width: 350px;
+        margin-top: 20px;
+    }
+
+    .i-status1-message {
+        transform: translate(82%, -68%);
+    }
+
+    .i-status2-message {
+        transform: translate(-12%, -68%);
+    }
+
+    .i-status1-message,
+    .i-status2-message {
+        width: 30%;
+        height: 20%;
+    }
+
+    .i-buff-debuff1-message {
+        transform: translate(69%, -60%);
+    }
+
+    .i-buff-debuff2-message {
+        transform: translate(-27%, -60%);
+    }
+
+    .i-buff-debuff1-message,
+    .i-buff-debuff2-message {
+        width: 50%;
+        height: 30%;
+    }
+
+    .div-fraquezas {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .i-fraquezas-message {
+        width: 95%;
+        height: 89%;
+        transform: translate(0%, -53%);
+        padding: 0px 20px 20px 20px;
+    }
+
+    .flex-fraquezas-h2 {
+        justify-content: center !important;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .fraqueza-types,
+    .fraqueza-types-three,
+    .fraqueza-types-four,
+    .fraqueza-types-five {
+        font-size: clamp(16px, 2vw, 17px);
+    } 
 }
