@@ -1,8 +1,4 @@
 @media screen and (max-width: 767px) {
-    .pokedex-mobile {
-        display: block;
-    }
-
     .pokedex {
         width: 90%;
         padding-top: 5%;
@@ -260,10 +256,6 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1269px) {
-    .pokedex-mobile {
-        display: block;
-    }
-
     .pokedex {
         padding: 2%;
     }
@@ -523,10 +515,6 @@
 }
 
 @media screen and (min-width: 1270px) and (max-width: 1760px) {
-    .pokedex-desktop {
-        display: block;
-    }
-
     .pokedex {
         width: 65%;
         padding-top: 2.5%;
@@ -736,11 +724,5 @@
     .suggestions__compare1 li,
     .suggestions__compare2 li {
         padding: 7px 11px;
-    }
-}
-
-@media screen and (min-width: 1761px) {
-    .pokedex-desktop {
-        display: block;
     }
 }

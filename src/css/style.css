@@ -52,7 +52,8 @@ li {
     background: #0F0F0F;
 }
 
-.flex {
+.flex,
+.flex-load {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,10 +66,8 @@ li {
     padding-top: 2%;
 }
 
-.pokedex-desktop {
-    display: none;
-}
-
+.pokedex-desktop,
+.pokedex-desktop-close,
 .pokedex-mobile {
     display: none;
 }

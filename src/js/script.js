@@ -69,6 +69,10 @@ const victoryC2 = select('.victory__compare2');
 const mainBg = select('.main__bg');
 const vsCompare = select('.vs__compare');
 const vsDarkCompare = select('.vs__dark__compare');
+const pokeLoad = select('.pokedex-desktop-close');
+const pokeDesktop = select('.pokedex-desktop');
+const pokeMobile = select('.pokedex-mobile');
+const flex = select('.flex');
 
 const MAX_POKEMON_NUMBER = 649;
 
@@ -80,6 +84,39 @@ let sumC2 = 0;
 let imagesLoaded = 0;
 let fightC1 = [];
 let fightC2 = [];
+
+// efeito pokédex abrindo
+if (window.innerWidth > 1270) {
+    pokeLoad.style.display = 'block';
+    flex.style.display = 'none';
+
+    setTimeout(async function () {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        pokeLoad.style.display = 'none';
+        pokeDesktop.style.display = 'block';
+        flex.style.display = 'flex';
+    }, 0);
+} else {
+    pokeLoad.style.display = 'none';
+    pokeDesktop.style.display = 'none';
+    flex.style.display = 'flex';
+    pokeMobile.style.display = "block";
+}
+
+window.addEventListener('resize', function () {
+    if (window.innerWidth > 1270) {
+        pokeLoad.style.display = 'none';
+        pokeDesktop.style.display = 'block';
+        flex.style.display = 'flex';
+        pokeMobile.style.display = "none";
+    } else {
+        pokeLoad.style.display = 'none';
+        pokeDesktop.style.display = 'none';
+        flex.style.display = 'flex';
+        pokeMobile.style.display = "block";
+    }
+});
+//
 
 const fetchPokemon = async (pokemon) => {
     try {
