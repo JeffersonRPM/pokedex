@@ -390,7 +390,7 @@ const renderComparePokemon1 = async (pokemon) => {
                             max: 255,
                             pointLabels: {
                                 font: {
-                                    size: 16
+                                    size: window.innerWidth <= 767 ? 10 : (window.innerWidth <= 1269 ? 14 : (window.innerWidth <= 1760 ? 12 : 16))
                                 }
                             }
                         }
@@ -573,7 +573,7 @@ const renderComparePokemon2 = async (pokemon) => {
                             max: 255,
                             pointLabels: {
                                 font: {
-                                    size: 16
+                                    size: window.innerWidth <= 767 ? 10 : (window.innerWidth <= 1269 ? 14 : (window.innerWidth <= 1760 ? 12 : 16))
                                 }
                             }
                         }
