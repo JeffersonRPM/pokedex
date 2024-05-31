@@ -36,6 +36,8 @@ O sistema para a Pokédex é uma plataforma interativa que permite aos usuários
   
 * O sistema deve ter a opção de comparar Pokemons, analisando qual ganharia em um combate, levando em consideração o status e o elemento.
 
+* O sistema deve fornecer uma explicação sobre o resultado do combate. Este campo deve esclarecer como os status e tipos dos Pokemons influenciam o resultado.
+
 
 ## Requisitos Não Funcionais (RNF)
 

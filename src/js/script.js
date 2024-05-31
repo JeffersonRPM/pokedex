@@ -23,6 +23,7 @@ const btnPrev = select('.btn-prev');
 const btnNext = select('.btn-next');
 const gear = select('.gear');
 const menu = select('.bg-menu');
+const menuInfo = select('.bg-info');
 const close = select('.compare-close');
 const overlay = select('.overlay');
 const inputC1 = select('.input__search__compare1');
@@ -58,6 +59,7 @@ const loaderC1 = select('.loader__compare1');
 const loaderC2 = select('.loader__compare2');
 const compareContainer = select('.compare__container');
 const compareClose = select('.compare__close');
+const compareInfo = select('.compare__info');
 const defeatC1 = select('.defeat__compare1');
 const defeatC2 = select('.defeat__compare2');
 const drawC1 = select('.draw__compare1');
@@ -600,13 +602,26 @@ gear.addEventListener('click', (event) => {
     menu.classList.toggle('show');
 });
 
+compareInfo.addEventListener('click', (event) => {
+    event.stopPropagation();
+    menuInfo.classList.toggle('show');
+});
+
 menu.addEventListener('click', (event) => {
+    event.stopPropagation();
+});
+
+menuInfo.addEventListener('click', (event) => {
     event.stopPropagation();
 });
 
 document.addEventListener('click', () => {
     if (menu.classList.contains('show')) {
         menu.classList.remove('show');
+    }
+
+    if (menuInfo.classList.contains('show')) {
+        menuInfo.classList.remove('show');
     }
 });
 
@@ -668,6 +683,8 @@ btnCompare.addEventListener('click', () => {
         compareContainer.classList.remove('compare-container');
         compareClose.classList.add('compare-close-dark');
         compareClose.classList.remove('compare-close');
+        compareInfo.classList.add('compare-info-dark');
+        compareInfo.classList.remove('compare-info');
         vsCompare.style.display = "none";
         vsDarkCompare.style.display = "block";
     } else {
@@ -678,6 +695,8 @@ btnCompare.addEventListener('click', () => {
         compareContainer.classList.add('compare-container');
         compareClose.classList.remove('compare-close-dark');
         compareClose.classList.add('compare-close');
+        compareInfo.classList.remove('compare-info-dark');
+        compareInfo.classList.add('compare-info');
         vsCompare.style.display = "block";
         vsDarkCompare.style.display = "none";
     }
