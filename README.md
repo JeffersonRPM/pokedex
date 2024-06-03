@@ -74,6 +74,9 @@ O sistema para a Pokédex é uma plataforma interativa que permite aos usuários
 ```
 https://pokeapi.co/
 ```
+```
+https://www.chartjs.org/docs/latest/
+```
 
 ## Licença
 
