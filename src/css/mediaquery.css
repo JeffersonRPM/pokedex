@@ -270,6 +270,7 @@
 
     .graph-adjustment {
         height: 280px !important;
+        margin: 0;
     }
 
     .grid-info {
@@ -277,18 +278,15 @@
         flex-wrap: wrap;
     }
 
-    .info-fight1,
-    .info-fight2 {
-        margin: 12% 1.5% 1.5% 1.5%;
+    h1.info-fight1,
+    h1.info-fight2 {
+        font-size: clamp(25px, 2vw, 30px);
+
     }
 
     h1.info-fight1,
     h1.info-fight2 {
-        font-size: clamp(25px, 2vw, 30px);
-    }
-
-    h1.info-fight2 {
-        transform: translate(0%, 1250%);
+       position: relative;
     }
 
     .h2-status-total1,
@@ -578,7 +576,7 @@
 
     .flex-info {
         width: 98%;
-        padding: 15px 10px 10px 10px;
+        padding: 15px 10px 10px 10px; 
     }
 
     .bg-info {
@@ -590,6 +588,7 @@
 
     .graph-adjustment {
         height: 400px !important;
+        margin: 0;
     }
 
     .grid-info {
@@ -599,7 +598,7 @@
 
     .info-fight1,
     .info-fight2 {
-        margin: 9% 1.5% 1.5% 1.5%;
+        margin: 1.5% 1.5% 1.5% 1.5%;
     }
 
     h1.info-fight1,
@@ -607,8 +606,10 @@
         font-size: clamp(30px, 2vw, 32px);
     }
 
+    h1.info-fight1,
     h1.info-fight2 {
-        transform: translate(0%, 1220%);
+       position: relative;
+       transform: translate(0%, 50%);
     }
 
     .h2-status-total1,
@@ -631,7 +632,7 @@
     }
 }
 
-@media screen and (min-width: 1270px) and (max-width: 1760px) {
+@media screen and (min-width: 1270px) and (max-width: 1850px) {
     .pokedex {
         width: 65%;
         padding-top: 2.5%;
@@ -862,11 +863,6 @@
         top: 9%;
     }
 
-    .info-fight1,
-    .info-fight2 {
-        margin: 7% 1.5% 1.5% 1.5%;
-    }
-
     .graph-adjustment {
         height: 350px;
         width: 350px;
@@ -902,10 +898,7 @@
     }
 
     .div-fraquezas {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
+        margin-top: 5%;
     }
 
     .i-fraquezas-message {
