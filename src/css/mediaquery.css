@@ -64,7 +64,6 @@
         font-size: clamp(14px, 2vw, 16px);
     }
 
-
     div.pokemon__type ul.effect-text li {
         padding: 1% 6%;
         margin: 8%;
@@ -87,9 +86,9 @@
         transform: translate(-21%, 0%);
     }
 
-    #chk-1:checked~.switch .slider,
-    #chk-2:checked~.switch .slider,
-    #chk-3:checked~.switch .slider {
+    #chk-1:checked ~ .switch .slider,
+    #chk-2:checked ~ .switch .slider,
+    #chk-3:checked ~ .switch .slider {
         transform: translate(clamp(22px, 2vw, 23px));
     }
 
@@ -281,12 +280,11 @@
     h1.info-fight1,
     h1.info-fight2 {
         font-size: clamp(25px, 2vw, 30px);
-
     }
 
     h1.info-fight1,
     h1.info-fight2 {
-       position: relative;
+        position: relative;
     }
 
     .h2-status-total1,
@@ -376,7 +374,6 @@
         font-size: clamp(15px, 2vw, 17px);
     }
 
-
     div.pokemon__type ul.effect-text li {
         padding: 1% 6%;
         margin: 8%;
@@ -399,9 +396,9 @@
         transform: translate(-15%, 0%);
     }
 
-    #chk-1:checked~.switch .slider,
-    #chk-2:checked~.switch .slider,
-    #chk-3:checked~.switch .slider {
+    #chk-1:checked ~ .switch .slider,
+    #chk-2:checked ~ .switch .slider,
+    #chk-3:checked ~ .switch .slider {
         transform: translate(clamp(22px, 2vw, 22px));
     }
 
@@ -576,7 +573,7 @@
 
     .flex-info {
         width: 98%;
-        padding: 15px 10px 10px 10px; 
+        padding: 15px 10px 10px 10px;
     }
 
     .bg-info {
@@ -608,8 +605,8 @@
 
     h1.info-fight1,
     h1.info-fight2 {
-       position: relative;
-       transform: translate(0%, 50%);
+        position: relative;
+        transform: translate(0%, 50%);
     }
 
     .h2-status-total1,
@@ -919,5 +916,5 @@
     .fraqueza-types-four,
     .fraqueza-types-five {
         font-size: clamp(16px, 2vw, 17px);
-    } 
+    }
 }
