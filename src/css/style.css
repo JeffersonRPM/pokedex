@@ -49,7 +49,7 @@ li {
 }
 
 .dark-bg {
-    background: #0F0F0F;
+    background: #0f0f0f;
 }
 
 .flex,
@@ -93,7 +93,7 @@ li {
     text-align: end;
     white-space: nowrap;
     overflow: hidden;
-    background: linear-gradient(90deg, #0F0F0F, #222);
+    background: linear-gradient(90deg, #0f0f0f, #222);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -117,20 +117,19 @@ li {
     width: 118%;
     padding: 4%;
     font-weight: 600;
-    color: #0F0F0F;
+    color: #0f0f0f;
     border-radius: 5px;
-    border: solid 2px #0F0F0F;
+    border: solid 2px #0f0f0f;
     background-color: #e3e3e3;
     font-size: clamp(18px, 2vw, 22px);
-    box-shadow: -5px 5px 0 #7c8282,
-        -6px 6px 0 #0F0F0F;
+    box-shadow: -5px 5px 0 #7c8282, -6px 6px 0 #0f0f0f;
 }
 
 .input__search:focus {
     background: #fff;
 }
 
-input[type="search"]::-webkit-search-cancel-button {
+input[type='search']::-webkit-search-cancel-button {
     cursor: pointer;
 }
 
@@ -148,15 +147,14 @@ input[type="search"]::-webkit-search-cancel-button {
     color: #fff;
     display: flex;
     justify-content: center;
-    background: linear-gradient(90deg, #0F0F0F, #222);
+    background: linear-gradient(90deg, #0f0f0f, #222);
     padding: 1.5%;
     width: 17%;
     font-weight: 600;
     font-size: clamp(18px, 2vw, 22px);
-    border: solid 2px #0F0F0F;
+    border: solid 2px #0f0f0f;
     border-radius: 5px;
-    box-shadow: -5px 5px 0 #444,
-        -6px 6px 0 #0F0F0F;
+    box-shadow: -5px 5px 0 #444, -6px 6px 0 #0f0f0f;
     transform: translate(-110%, 840%);
     cursor: pointer;
 }
@@ -166,8 +164,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .btn:active {
-    box-shadow: inset -3px 3px 0 #444,
-        inset -4px 4px 0 #0F0F0F;
+    box-shadow: inset -3px 3px 0 #444, inset -4px 4px 0 #0f0f0f;
     font-size: 21px;
 }
 
@@ -185,7 +182,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .effect-text {
-    background: linear-gradient(90deg, #0F0F0F, #222);
+    background: linear-gradient(90deg, #0f0f0f, #222);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -239,9 +236,8 @@ div.pokemon__type ul.effect-text li {
     margin: 3%;
     text-transform: capitalize;
     border-radius: 5px;
-    box-shadow: -0.5px 0.5px 3px #0F0F0F,
-        0.5px -0.5px 3px #0F0F0F;
-    color: #0F0F0F;
+    box-shadow: -0.5px 0.5px 3px #0f0f0f, 0.5px -0.5px 3px #0f0f0f;
+    color: #0f0f0f;
 }
 
 .gear {
@@ -257,7 +253,7 @@ div.pokemon__type ul.effect-text li {
 .gear:hover {
     border-radius: 50%;
     filter: invert(0);
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .menu-hidden {
@@ -271,8 +267,8 @@ div.pokemon__type ul.effect-text li {
     position: absolute;
     right: 1%;
     top: 7.5%;
-    border: 1px solid #0F0F0F;
-    box-shadow: 0 0 2px #0F0F0F;
+    border: 1px solid #0f0f0f;
+    box-shadow: 0 0 2px #0f0f0f;
 }
 
 .bg-menu {
@@ -280,7 +276,7 @@ div.pokemon__type ul.effect-text li {
     background-color: rgb(227, 227, 227, 1);
     padding: clamp(28px, 2vw, 30px);
     border-radius: 10px;
-    transition: all .4s ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 
 .bg-menu.show,
@@ -315,7 +311,7 @@ div.pokemon__type ul.effect-text li {
     display: flex;
     align-items: center;
     padding: 1px;
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
     cursor: pointer;
 }
 
@@ -325,18 +321,18 @@ div.pokemon__type ul.effect-text li {
     border-radius: 50%;
     width: clamp(16px, 2vw, 18px);
     height: clamp(16px, 2vw, 18px);
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
-#chk-1:checked~.switch,
-#chk-2:checked~.switch,
-#chk-3:checked~.switch {
-    background: #2196F3;
+#chk-1:checked ~ .switch,
+#chk-2:checked ~ .switch,
+#chk-3:checked ~ .switch {
+    background: #2196f3;
 }
 
-#chk-1:checked~.switch .slider,
-#chk-2:checked~.switch .slider,
-#chk-3:checked~.switch .slider {
+#chk-1:checked ~ .switch .slider,
+#chk-2:checked ~ .switch .slider,
+#chk-3:checked ~ .switch .slider {
     transform: translate(clamp(18px, 2vw, 20px));
 }
 
@@ -346,7 +342,7 @@ div.pokemon__type ul.effect-text li {
     left: 34.5%;
     width: 60px;
     height: 60px;
-    border: 5px solid #FFF;
+    border: 5px solid #fff;
     border-bottom-color: transparent;
     border-radius: 50%;
     animation: rotation 1s linear infinite;
@@ -359,7 +355,7 @@ div.pokemon__type ul.effect-text li {
     left: 25%;
     width: 60px;
     height: 60px;
-    border: 5px solid #0F0F0F;
+    border: 5px solid #0f0f0f;
     border-bottom-color: transparent;
     border-radius: 50%;
     animation: rotation 1s linear infinite;
@@ -372,7 +368,7 @@ div.pokemon__type ul.effect-text li {
     left: 70%;
     width: 60px;
     height: 60px;
-    border: 5px solid #0F0F0F;
+    border: 5px solid #0f0f0f;
     border-bottom-color: transparent;
     border-radius: 50%;
     animation: rotation 1s linear infinite;
@@ -423,7 +419,8 @@ div.pokemon__type ul.effect-text li {
     margin: 1.5%;
     padding: 0.5%;
     color: #fff;
-    text-shadow: 1px 1px 2px rgba(15, 15, 15, 0.5), -1px -1px 2px rgba(15, 15, 15, 0.5);
+    text-shadow: 1px 1px 2px rgba(15, 15, 15, 0.5),
+        -1px -1px 2px rgba(15, 15, 15, 0.5);
 }
 
 .compare-close,
@@ -440,14 +437,14 @@ div.pokemon__type ul.effect-text li {
 }
 
 .compare-close-dark:hover {
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     background-color: #888;
     padding: 0.3%;
     border-radius: 50%;
 }
 
 .compare-info-dark:hover {
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     background-color: #888;
     padding: 0.6%;
     border-radius: 50%;
@@ -455,7 +452,7 @@ div.pokemon__type ul.effect-text li {
 
 .compare-close:hover,
 .compare-info:hover {
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     filter: invert(0);
 }
 
@@ -481,7 +478,7 @@ div.pokemon__type ul.effect-text li {
     width: 65%;
     background: radial-gradient(circle, #fff, rgba(52, 152, 219, 0.8));
     border-radius: 10px;
-    border: solid 1px #0F0F0F;
+    border: solid 1px #0f0f0f;
 }
 
 .compare-container-dark {
@@ -491,9 +488,9 @@ div.pokemon__type ul.effect-text li {
     position: relative;
     height: 98%;
     width: 65%;
-    background: #0F0F0F;
+    background: #0f0f0f;
     border-radius: 1%;
-    border: solid 1px #0F0F0F;
+    border: solid 1px #0f0f0f;
 }
 
 .compare {
@@ -505,7 +502,7 @@ div.pokemon__type ul.effect-text li {
     margin: 2.5%;
     background: #fff;
     border-radius: 10px;
-    border: solid 2px #0F0F0F;
+    border: solid 2px #0f0f0f;
 }
 
 .compare-form1,
@@ -525,9 +522,9 @@ div.pokemon__type ul.effect-text li {
     width: 100%;
     padding: 2% 0% 2% 6%;
     font-weight: 600;
-    color: #0F0F0F;
+    color: #0f0f0f;
     border-radius: 5px;
-    border: solid 2px #0F0F0F;
+    border: solid 2px #0f0f0f;
     background-color: #e5e5e5;
     font-size: clamp(18px, 2vw, 19px);
 }
@@ -565,7 +562,7 @@ ul.compare-re-stats.effect-text li {
 }
 
 .btn-compare {
-    color: #0F0F0F;
+    color: #0f0f0f;
     display: flex;
     justify-content: center;
     background: #e3e3e3;
@@ -573,11 +570,10 @@ ul.compare-re-stats.effect-text li {
     width: 12%;
     font-weight: 600;
     font-size: clamp(18px, 2vw, 22px);
-    border: solid 2px #0F0F0F;
+    border: solid 2px #0f0f0f;
     border-radius: 5px;
     transform: translate(36%, -360%);
-    box-shadow: -5px 5px 0 #7f7f7f,
-        -6px 6px 0 #0F0F0F;
+    box-shadow: -5px 5px 0 #7f7f7f, -6px 6px 0 #0f0f0f;
     cursor: pointer;
 }
 
@@ -586,8 +582,7 @@ ul.compare-re-stats.effect-text li {
 }
 
 .btn-compare:active {
-    box-shadow: inset -3px 3px 0 #7f7f7f,
-        inset -4px 4px 0 #e3e3e3;
+    box-shadow: inset -3px 3px 0 #7f7f7f, inset -4px 4px 0 #e3e3e3;
     font-size: 21px;
 }
 
@@ -600,7 +595,6 @@ ul.compare-re-stats.effect-text li {
     left: 36.5%;
     transform: translate(18%, -50%);
 }
-
 
 .pokemon__type__compare1,
 .pokemon__type__compare2 {
@@ -627,9 +621,8 @@ div.pokemon__type__compare2 ul.effect-text li {
     margin: 8%;
     text-transform: capitalize;
     border-radius: 5px;
-    box-shadow: -0.5px 0.5px 3px #0F0F0F,
-        0.5px -0.5px 3px #0F0F0F;
-    color: #0F0F0F;
+    box-shadow: -0.5px 0.5px 3px #0f0f0f, 0.5px -0.5px 3px #0f0f0f;
+    color: #0f0f0f;
 }
 
 .pokemon__name__compare1,
@@ -648,7 +641,7 @@ div.pokemon__type__compare2 ul.effect-text li {
     transform: translate(0%, 720%);
     white-space: nowrap;
     overflow: hidden;
-    background: linear-gradient(90deg, #0F0F0F, #222);
+    background: linear-gradient(90deg, #0f0f0f, #222);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -657,13 +650,13 @@ div.pokemon__type__compare2 ul.effect-text li {
 .btn-compare-prev,
 .btn-compare-next {
     z-index: 1;
-    color: #0F0F0F;
+    color: #0f0f0f;
     display: flex;
     background: #e3e3e3;
     padding: 8% 30% 20% 30%;
     font-weight: 600;
     font-size: clamp(18px, 2vw, 20px);
-    border: solid 2px #0F0F0F;
+    border: solid 2px #0f0f0f;
     border-radius: 5px;
     transform: translate(-140%, 90%);
     cursor: pointer;
@@ -718,7 +711,6 @@ div.pokemon__type__compare2 ul.effect-text li {
 }
 
 @keyframes fadeInOut {
-
     0%,
     100% {
         opacity: 0;
@@ -736,7 +728,7 @@ div.pokemon__type__compare2 ul.effect-text li {
     position: absolute;
     overflow-y: auto;
     background: #e3e3e3;
-    border: solid 2px #0F0F0F;
+    border: solid 2px #0f0f0f;
     border-radius: 5px;
     font-weight: 600;
     font-size: clamp(18px, 2vw, 22px);
@@ -745,8 +737,7 @@ div.pokemon__type__compare2 ul.effect-text li {
 .suggestions {
     max-height: 160px;
     width: 21.7%;
-    box-shadow: -5px 5px 0 #7c8282,
-        -6px 6px 0 #0F0F0F;
+    box-shadow: -5px 5px 0 #7c8282, -6px 6px 0 #0f0f0f;
     top: 75.5%;
     transform: translate(-64%, 0%);
 }
@@ -774,7 +765,7 @@ div.pokemon__type__compare2 ul.effect-text li {
 .suggestions li:nth-child(odd):hover,
 .suggestions__compare1 li:nth-child(odd):hover,
 .suggestions__compare2 li:nth-child(odd):hover {
-    background: linear-gradient(90deg, #0F0F0F, #222);
+    background: linear-gradient(90deg, #0f0f0f, #222);
     color: #e3e3e3;
 }
 
@@ -787,8 +778,8 @@ div.pokemon__type__compare2 ul.effect-text li {
 .suggestions li:nth-child(even):hover,
 .suggestions__compare1 li:nth-child(even):hover,
 .suggestions__compare2 li:nth-child(even):hover {
-    background: linear-gradient(90deg, #0F0F0F, #222);
-    color: #E3E3E3;
+    background: linear-gradient(90deg, #0f0f0f, #222);
+    color: #e3e3e3;
 }
 
 .suggestions.hidden,
@@ -806,7 +797,7 @@ div.pokemon__type__compare2 ul.effect-text li {
     border-radius: 10px;
     padding: 30px 20px 20px 20px;
     margin: 10px;
-    border: solid 1px #0F0F0F;
+    border: solid 1px #0f0f0f;
 }
 
 .bg-info {
@@ -819,9 +810,9 @@ div.pokemon__type__compare2 ul.effect-text li {
     background-color: rgb(227, 227, 227, 1);
     padding: 20px;
     border-radius: 10px;
-    border: 1px solid #0F0F0F;
-    box-shadow: 0 0 2px #0F0F0F;
-    transition: all .4s ease-in-out;
+    border: 1px solid #0f0f0f;
+    box-shadow: 0 0 2px #0f0f0f;
+    transition: all 0.4s ease-in-out;
     z-index: 3;
 }
 
@@ -839,7 +830,7 @@ div.pokemon__type__compare2 ul.effect-text li {
     top: 0;
     margin: 4.5% 1.5% 1.5% 1.5%;
     padding: 0.5%;
-    color: #0F0F0F;
+    color: #0f0f0f;
 }
 
 .graph-adjustment {
@@ -865,11 +856,11 @@ div.pokemon__type__compare2 ul.effect-text li {
     cursor: pointer;
 }
 
-.i-status1:hover+.i-status1-message,
-.i-status2:hover+.i-status2-message,
-.i-buff-debuff1:hover+.i-buff-debuff1-message,
-.i-buff-debuff2:hover+.i-buff-debuff2-message,
-.i-fraquezas:hover+.i-fraquezas-message {
+.i-status1:hover + .i-status1-message,
+.i-status2:hover + .i-status2-message,
+.i-buff-debuff1:hover + .i-buff-debuff1-message,
+.i-buff-debuff2:hover + .i-buff-debuff2-message,
+.i-fraquezas:hover + .i-fraquezas-message {
     display: block;
 }
 
@@ -883,9 +874,9 @@ div.pokemon__type__compare2 ul.effect-text li {
     background-color: rgb(227, 227, 227, 1);
     padding: 20px;
     border-radius: 10px;
-    border: 1px solid #0F0F0F;
-    box-shadow: 0 0 2px #0F0F0F;
-    transition: all .4s ease-in-out;
+    border: 1px solid #0f0f0f;
+    box-shadow: 0 0 2px #0f0f0f;
+    transition: all 0.4s ease-in-out;
 }
 
 .i-status1-message {
@@ -963,9 +954,8 @@ div.pokemon__type__compare2 ul.effect-text li {
     margin: 1.5%;
     text-transform: capitalize;
     border-radius: 5px;
-    box-shadow: -0.5px 0.5px 3px #0F0F0F,
-        0.5px -0.5px 3px #0F0F0F;
-    color: #0F0F0F;
+    box-shadow: -0.5px 0.5px 3px #0f0f0f, 0.5px -0.5px 3px #0f0f0f;
+    color: #0f0f0f;
     font-size: clamp(18px, 2vw, 20px);
     font-weight: 600;
     text-align: center;
@@ -988,73 +978,145 @@ div.pokemon__type__compare2 ul.effect-text li {
 }
 
 .bug {
-    background: linear-gradient(180deg, rgb(158, 196, 47), rgb(158, 196, 47, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(158, 196, 47),
+        rgb(158, 196, 47, 0.65)
+    );
 }
 
 .dark {
-    background: linear-gradient(180deg, rgb(97, 96, 113), rgb(97, 96, 113, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(97, 96, 113),
+        rgb(97, 96, 113, 0.65)
+    );
 }
 
 .dragon {
-    background: linear-gradient(180deg, rgb(10, 120, 193), rgb(10, 120, 193, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(10, 120, 193),
+        rgb(10, 120, 193, 0.65)
+    );
 }
 
 .electric {
-    background: linear-gradient(180deg, rgb(246, 217, 84), rgb(246, 217, 84, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(246, 217, 84),
+        rgb(246, 217, 84, 0.65)
+    );
 }
 
 .fairy {
-    background: linear-gradient(180deg, rgb(237, 146, 228), rgb(237, 146, 228, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(237, 146, 228),
+        rgb(237, 146, 228, 0.65)
+    );
 }
 
 .fighting {
-    background: linear-gradient(180deg, rgb(215, 66, 95), rgb(215, 66, 95, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(215, 66, 95),
+        rgb(215, 66, 95, 0.65)
+    );
 }
 
 .fire {
-    background: linear-gradient(180deg, rgb(255, 163, 80), rgb(255, 163, 80, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(255, 163, 80),
+        rgb(255, 163, 80, 0.65)
+    );
 }
 
 .flying {
-    background: linear-gradient(180deg, rgb(159, 185, 233), rgb(159, 185, 233, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(159, 185, 233),
+        rgb(159, 185, 233, 0.65)
+    );
 }
 
 .ghost {
-    background: linear-gradient(180deg, rgb(106, 111, 198), rgb(106, 111, 198, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(106, 111, 198),
+        rgb(106, 111, 198, 0.65)
+    );
 }
 
 .grass {
-    background: linear-gradient(180deg, rgb(92, 191, 104), rgb(92, 191, 104, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(92, 191, 104),
+        rgb(92, 191, 104, 0.65)
+    );
 }
 
 .ground {
-    background: linear-gradient(180deg, rgb(215, 127, 79), rgb(215, 127, 79, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(215, 127, 79),
+        rgb(215, 127, 79, 0.65)
+    );
 }
 
 .ice {
-    background: linear-gradient(180deg, rgb(128, 212, 201), rgb(128, 212, 201, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(128, 212, 201),
+        rgb(128, 212, 201, 0.65)
+    );
 }
 
 .normal {
-    background: linear-gradient(180deg, rgb(157, 160, 160), rgb(157, 160, 160, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(157, 160, 160),
+        rgb(157, 160, 160, 0.65)
+    );
 }
 
 .poison {
-    background: linear-gradient(180deg, rgb(188, 98, 208), rgb(188, 98, 208, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(188, 98, 208),
+        rgb(188, 98, 208, 0.65)
+    );
 }
 
 .psychic {
-    background: linear-gradient(180deg, rgb(249, 119, 123), rgb(249, 119, 123, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(249, 119, 123),
+        rgb(249, 119, 123, 0.65)
+    );
 }
 
 .rock {
-    background: linear-gradient(180deg, rgb(206, 192, 143), rgb(206, 192, 143, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(206, 192, 143),
+        rgb(206, 192, 143, 0.65)
+    );
 }
 
 .steel {
-    background: linear-gradient(180deg, rgb(84, 143, 159), rgb(84, 143, 159, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(84, 143, 159),
+        rgb(84, 143, 159, 0.65)
+    );
 }
 
 .water {
-    background: linear-gradient(180deg, rgb(86, 156, 217), rgb(86, 156, 217, 0.65));
+    background: linear-gradient(
+        180deg,
+        rgb(86, 156, 217),
+        rgb(86, 156, 217, 0.65)
+    );
 }

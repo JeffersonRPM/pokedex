@@ -1,7 +1,7 @@
 const axios = require('axios');
 
-import "../../src/css/style.css";
-import "../../src/css/mediaquery.css";
+import '../../src/css/style.css';
+import '../../src/css/mediaquery.css';
 
 const select = (selector) => document.querySelector(selector);
 const pokemonName = select('.pokemon__name');
@@ -88,6 +88,10 @@ let fightC1 = [];
 let fightC2 = [];
 let myChart1;
 let myChart2;
+let corInfo1 = '';
+let bgInfo1 = '';
+let corInfo2 = '';
+let bgInfo2 = '';
 
 // efeito pokédex abrindo
 if (window.innerWidth > 1270) {
@@ -95,7 +99,7 @@ if (window.innerWidth > 1270) {
     flex.style.display = 'none';
 
     setTimeout(async function () {
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
         pokeLoad.style.display = 'none';
         pokeDesktop.style.display = 'block';
         flex.style.display = 'flex';
@@ -104,7 +108,7 @@ if (window.innerWidth > 1270) {
     pokeLoad.style.display = 'none';
     pokeDesktop.style.display = 'none';
     flex.style.display = 'flex';
-    pokeMobile.style.display = "block";
+    pokeMobile.style.display = 'block';
 }
 
 window.addEventListener('resize', function () {
@@ -112,19 +116,21 @@ window.addEventListener('resize', function () {
         pokeLoad.style.display = 'none';
         pokeDesktop.style.display = 'block';
         flex.style.display = 'flex';
-        pokeMobile.style.display = "none";
+        pokeMobile.style.display = 'none';
     } else {
         pokeLoad.style.display = 'none';
         pokeDesktop.style.display = 'none';
         flex.style.display = 'flex';
-        pokeMobile.style.display = "block";
+        pokeMobile.style.display = 'block';
     }
 });
 //
 
 const fetchPokemon = async (pokemon) => {
     try {
-        const APIResponse = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+        const APIResponse = await axios.get(
+            `https://pokeapi.co/api/v2/pokemon/${pokemon}`,
+        );
 
         if (APIResponse.status === 200) {
             return APIResponse.data;
@@ -132,85 +138,85 @@ const fetchPokemon = async (pokemon) => {
     } catch (error) {
         console.error(error);
     }
-}
+};
 
 const pokemonTypes = {
-    'bug': { color: '#9ec42f', name: 'inseto' },
-    'dark': { color: '#616071', name: 'sombrio' },
-    'dragon': { color: '#0a78c1', name: 'dragão' },
-    'electric': { color: '#f6d954', name: 'elétrico' },
-    'fairy': { color: '#ed92e4', name: 'fada' },
-    'fighting': { color: '#d7425f', name: 'lutador' },
-    'fire': { color: '#ffa350', name: 'fogo' },
-    'flying': { color: '#9fb9e9', name: 'voador' },
-    'ghost': { color: '#6a6fc6', name: 'fantasma' },
-    'grass': { color: '#5cbf68', name: 'planta' },
-    'ground': { color: '#d77f4f', name: 'terrestre' },
-    'ice': { color: '#80d4c9', name: 'gelo' },
-    'normal': { color: '#9da0a0', name: 'normal' },
-    'poison': { color: '#bc62d0', name: 'veneno' },
-    'psychic': { color: '#f9777b', name: 'psíquico' },
-    'rock': { color: '#cec08f', name: 'pedra' },
-    'steel': { color: '#548f9f', name: 'aço' },
-    'water': { color: '#569cd9', name: 'água' },
+    bug: { color: '#9ec42f', name: 'inseto' },
+    dark: { color: '#616071', name: 'sombrio' },
+    dragon: { color: '#0a78c1', name: 'dragão' },
+    electric: { color: '#f6d954', name: 'elétrico' },
+    fairy: { color: '#ed92e4', name: 'fada' },
+    fighting: { color: '#d7425f', name: 'lutador' },
+    fire: { color: '#ffa350', name: 'fogo' },
+    flying: { color: '#9fb9e9', name: 'voador' },
+    ghost: { color: '#6a6fc6', name: 'fantasma' },
+    grass: { color: '#5cbf68', name: 'planta' },
+    ground: { color: '#d77f4f', name: 'terrestre' },
+    ice: { color: '#80d4c9', name: 'gelo' },
+    normal: { color: '#9da0a0', name: 'normal' },
+    poison: { color: '#bc62d0', name: 'veneno' },
+    psychic: { color: '#f9777b', name: 'psíquico' },
+    rock: { color: '#cec08f', name: 'pedra' },
+    steel: { color: '#548f9f', name: 'aço' },
+    water: { color: '#569cd9', name: 'água' },
 };
 
 const tipos = {
-    'inseto': {
-        'fraqueza': ['fogo', 'pedra', 'voador']
+    inseto: {
+        fraqueza: ['fogo', 'pedra', 'voador'],
     },
-    'sombrio': {
-        'fraqueza': ['inseto', 'fada', 'lutador']
+    sombrio: {
+        fraqueza: ['inseto', 'fada', 'lutador'],
     },
-    'dragão': {
-        'fraqueza': ['dragão', 'fada', 'gelo']
+    dragão: {
+        fraqueza: ['dragão', 'fada', 'gelo'],
     },
-    'elétrico': {
-        'fraqueza': ['terrestre']
+    elétrico: {
+        fraqueza: ['terrestre'],
     },
-    'fada': {
-        'fraqueza': ['aço', 'veneno']
+    fada: {
+        fraqueza: ['aço', 'veneno'],
     },
-    'lutador': {
-        'fraqueza': ['voador', 'psíquico', 'fada']
+    lutador: {
+        fraqueza: ['voador', 'psíquico', 'fada'],
     },
-    'fogo': {
-        'fraqueza': ['água', 'pedra', 'terrestre']
+    fogo: {
+        fraqueza: ['água', 'pedra', 'terrestre'],
     },
-    'voador': {
-        'fraqueza': ['elétrico', 'gelo', 'pedra']
+    voador: {
+        fraqueza: ['elétrico', 'gelo', 'pedra'],
     },
-    'fantasma': {
-        'fraqueza': ['fantasma', 'sombrio']
+    fantasma: {
+        fraqueza: ['fantasma', 'sombrio'],
     },
-    'planta': {
-        'fraqueza': ['fogo', 'gelo', 'veneno', 'voador', 'inseto']
+    planta: {
+        fraqueza: ['fogo', 'gelo', 'veneno', 'voador', 'inseto'],
     },
-    'terrestre': {
-        'fraqueza': ['água', 'planta', 'gelo']
+    terrestre: {
+        fraqueza: ['água', 'planta', 'gelo'],
     },
-    'gelo': {
-        'fraqueza': ['fogo', 'lutador', 'pedra', 'aço']
+    gelo: {
+        fraqueza: ['fogo', 'lutador', 'pedra', 'aço'],
     },
-    'normal': {
-        'fraqueza': ['lutador']
+    normal: {
+        fraqueza: ['lutador'],
     },
-    'veneno': {
-        'fraqueza': ['terrestre', 'psíquico']
+    veneno: {
+        fraqueza: ['terrestre', 'psíquico'],
     },
-    'psíquico': {
-        'fraqueza': ['inseto', 'fantasma', 'sombrio']
+    psíquico: {
+        fraqueza: ['inseto', 'fantasma', 'sombrio'],
     },
-    'pedra': {
-        'fraqueza': ['água', 'planta', 'lutador', 'terrestre', 'aço']
+    pedra: {
+        fraqueza: ['água', 'planta', 'lutador', 'terrestre', 'aço'],
     },
-    'aço': {
-        'fraqueza': ['fogo', 'lutador', 'terrestre']
+    aço: {
+        fraqueza: ['fogo', 'lutador', 'terrestre'],
     },
-    'água': {
-        'fraqueza': ['elétrico', 'planta']
-    }
-}
+    água: {
+        fraqueza: ['elétrico', 'planta'],
+    },
+};
 
 const renderMainPokemon = async (pokemon) => {
     pokemonName.innerHTML = 'carregando...';
@@ -237,23 +243,43 @@ const renderMainPokemon = async (pokemon) => {
 
         var images = {};
         images.front_default = new Image();
-        images.front_default.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
+        images.front_default.src =
+            data['sprites']['versions']['generation-v']['black-white'][
+                'animated'
+            ]['front_default'];
         images.back_default = new Image();
-        images.back_default.src = data['sprites']['versions']['generation-v']['black-white']['animated']['back_default'];
+        images.back_default.src =
+            data['sprites']['versions']['generation-v']['black-white'][
+                'animated'
+            ]['back_default'];
         images.front_shiny = new Image();
-        images.front_shiny.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_shiny'];
+        images.front_shiny.src =
+            data['sprites']['versions']['generation-v']['black-white'][
+                'animated'
+            ]['front_shiny'];
         images.back_shiny = new Image();
-        images.back_shiny.src = data['sprites']['versions']['generation-v']['black-white']['animated']['back_shiny'];
+        images.back_shiny.src =
+            data['sprites']['versions']['generation-v']['black-white'][
+                'animated'
+            ]['back_shiny'];
 
-        document.getElementById('chk-2').removeEventListener('change', updatePokemonImage);
-        document.getElementById('chk-3').removeEventListener('change', updatePokemonImage);
+        document
+            .getElementById('chk-2')
+            .removeEventListener('change', updatePokemonImage);
+        document
+            .getElementById('chk-3')
+            .removeEventListener('change', updatePokemonImage);
 
-        document.getElementById('chk-2').addEventListener('change', function () {
-            updatePokemonImage(data, images);
-        });
-        document.getElementById('chk-3').addEventListener('change', function () {
-            updatePokemonImage(data, images);
-        });
+        document
+            .getElementById('chk-2')
+            .addEventListener('change', function () {
+                updatePokemonImage(data, images);
+            });
+        document
+            .getElementById('chk-3')
+            .addEventListener('change', function () {
+                updatePokemonImage(data, images);
+            });
 
         updatePokemonImage(data, images);
 
@@ -285,11 +311,11 @@ const renderMainPokemon = async (pokemon) => {
         pokemonImage.onload = function () {
             pokemonImage.style.visibility = 'visible';
             loader.style.visibility = 'hidden';
-        }
+        };
     }
 
     function displayStat(statName, element) {
-        const stat = data['stats'].find(stat => stat.stat.name === statName);
+        const stat = data['stats'].find((stat) => stat.stat.name === statName);
         if (stat) {
             element.innerHTML = stat['base_stat'];
         }
@@ -303,15 +329,17 @@ const renderMainPokemon = async (pokemon) => {
         displayStat('special-defense', pokemonSpecialDefense);
         displayStat('speed', pokemonSpeed);
 
-        pokemonWeight.innerHTML = (data.weight / 10).toFixed(1).replace('.', ',') + ' kg';
-        pokemonHeight.innerHTML = (data.height / 10).toFixed(1).replace('.', ',') + ' m';
+        pokemonWeight.innerHTML =
+            (data.weight / 10).toFixed(1).replace('.', ',') + ' kg';
+        pokemonHeight.innerHTML =
+            (data.height / 10).toFixed(1).replace('.', ',') + ' m';
     }
 
     function element() {
         const types = data['types'];
         const ulElement = select('.pokemon__type ul');
         ulElement.innerHTML = '';
-        types.forEach(typeObj => {
+        types.forEach((typeObj) => {
             const typeName = typeObj['type']['name'];
             const liElement = document.createElement('li');
             const typeInfo = pokemonTypes[typeName];
@@ -324,7 +352,7 @@ const renderMainPokemon = async (pokemon) => {
             ulElement.appendChild(liElement);
         });
     }
-}
+};
 
 const renderComparePokemon1 = async (pokemon) => {
     pokemonNameC1.innerHTML = 'carregando...';
@@ -350,7 +378,10 @@ const renderComparePokemon1 = async (pokemon) => {
 
         var images = {};
         images.front_default = new Image();
-        images.front_default.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
+        images.front_default.src =
+            data['sprites']['versions']['generation-v']['black-white'][
+                'animated'
+            ]['front_default'];
 
         updatePokemonImage(data, images);
 
@@ -367,7 +398,8 @@ const renderComparePokemon1 = async (pokemon) => {
         const radarData1 = getRadarData1();
 
         const ctxFight1 = select('.info-1');
-        const pokemonName1 = data.name.charAt(0).toUpperCase() + data.name.slice(1);
+        const pokemonName1 =
+            data.name.charAt(0).toUpperCase() + data.name.slice(1);
         infoFight1.innerHTML = pokemonName1;
 
         if (myChart1) {
@@ -377,11 +409,22 @@ const renderComparePokemon1 = async (pokemon) => {
             myChart1 = new Chart(ctxFight1, {
                 type: 'radar',
                 data: {
-                    labels: ['Vida', 'Ataque', 'Ataque especial', 'Velocidade', 'Defesa especial', 'Defesa'],
-                    datasets: [{
-                        data: radarData1,
-                        borderWidth: 1
-                    }]
+                    labels: [
+                        'Vida',
+                        'Ataque',
+                        'Ataque especial',
+                        'Velocidade',
+                        'Defesa especial',
+                        'Defesa',
+                    ],
+                    datasets: [
+                        {
+                            data: radarData1,
+                            borderWidth: 1,
+                            borderColor: corInfo1,
+                            backgroundColor: bgInfo1,
+                        },
+                    ],
                 },
                 options: {
                     scales: {
@@ -390,17 +433,24 @@ const renderComparePokemon1 = async (pokemon) => {
                             max: 255,
                             pointLabels: {
                                 font: {
-                                    size: window.innerWidth <= 767 ? 10 : (window.innerWidth <= 1269 ? 14 : (window.innerWidth <= 1760 ? 12 : 16))
-                                }
-                            }
-                        }
+                                    size:
+                                        window.innerWidth <= 767
+                                            ? 10
+                                            : window.innerWidth <= 1269
+                                            ? 14
+                                            : window.innerWidth <= 1760
+                                            ? 12
+                                            : 16,
+                                },
+                            },
+                        },
                     },
                     plugins: {
                         legend: {
-                            display: false
-                        }
-                    }
-                }
+                            display: false,
+                        },
+                    },
+                },
             });
         }
     }
@@ -412,12 +462,11 @@ const renderComparePokemon1 = async (pokemon) => {
             pokemonSpecialAttackC1.innerHTML,
             pokemonSpeedC1.innerHTML,
             pokemonSpecialDefenseC1.innerHTML,
-            pokemonDefenseC1.innerHTML
+            pokemonDefenseC1.innerHTML,
         ];
     }
 
     function updatePokemonImage(data, images) {
-
         pokemonImageC1.src = images.front_default.src;
         pokemonImageC1.style.visibility = 'hidden';
         loaderC1.style.visibility = 'visible';
@@ -425,11 +474,11 @@ const renderComparePokemon1 = async (pokemon) => {
         pokemonImageC1.onload = function () {
             pokemonImageC1.style.visibility = 'visible';
             loaderC1.style.visibility = 'hidden';
-        }
+        };
     }
 
     function displayStat(statName, element) {
-        const stat = data['stats'].find(stat => stat.stat.name === statName);
+        const stat = data['stats'].find((stat) => stat.stat.name === statName);
         if (stat) {
             element.innerHTML = stat['base_stat'];
         }
@@ -444,17 +493,16 @@ const renderComparePokemon1 = async (pokemon) => {
         displayStat('speed', pokemonSpeedC1);
 
         try {
-            let sum = (
+            let sum =
                 Number(pokemonHpC1.innerHTML) +
                 Number(pokemonAttackC1.innerHTML) +
                 Number(pokemonDefenseC1.innerHTML) +
                 Number(pokemonSpecialAttackC1.innerHTML) +
                 Number(pokemonSpecialDefenseC1.innerHTML) +
-                Number(pokemonSpeedC1.innerHTML
-                ));
+                Number(pokemonSpeedC1.innerHTML);
             sumC1 = sum;
         } catch (error) {
-            console.error("Ocorreu um erro ao calcular a soma: ", error);
+            console.error('Ocorreu um erro ao calcular a soma: ', error);
         }
     }
 
@@ -463,7 +511,7 @@ const renderComparePokemon1 = async (pokemon) => {
         const ulElement = select('.pokemon__type__compare1 ul');
         ulElement.innerHTML = '';
         fightC1 = [];
-        types.forEach(typeObj => {
+        types.forEach((typeObj) => {
             const typeName = typeObj['type']['name'];
             const liElement = document.createElement('li');
             const typeInfo = pokemonTypes[typeName];
@@ -489,25 +537,25 @@ const renderComparePokemon1 = async (pokemon) => {
         pokemonDefenseC1.innerHTML = '0';
         pokemonSpecialAttackC1.innerHTML = '0';
         pokemonSpecialDefenseC1.innerHTML = '0';
-        pokemonSpeedC1.innerHTML = '0'
+        pokemonSpeedC1.innerHTML = '0';
         pokemonTypeC1.style.display = 'none';
-        drawC1.style.opacity = "0";
-        drawC1.style.visibility = "hidden";
-        drawC2.style.opacity = "0";
-        drawC2.style.visibility = "hidden";
-        defeatC1.style.opacity = "0";
-        defeatC1.style.visibility = "hidden";
-        defeatC2.style.opacity = "0";
-        defeatC2.style.visibility = "hidden";
-        victoryC1.style.opacity = "0";
-        victoryC1.style.visibility = "hidden";
-        victoryC2.style.opacity = "0";
-        victoryC2.style.visibility = "hidden";
+        drawC1.style.opacity = '0';
+        drawC1.style.visibility = 'hidden';
+        drawC2.style.opacity = '0';
+        drawC2.style.visibility = 'hidden';
+        defeatC1.style.opacity = '0';
+        defeatC1.style.visibility = 'hidden';
+        defeatC2.style.opacity = '0';
+        defeatC2.style.visibility = 'hidden';
+        victoryC1.style.opacity = '0';
+        victoryC1.style.visibility = 'hidden';
+        victoryC2.style.opacity = '0';
+        victoryC2.style.visibility = 'hidden';
         searchPokemonC1 = data.id;
     }
 
     imagesLoaded++;
-}
+};
 
 const renderComparePokemon2 = async (pokemon) => {
     pokemonNameC2.innerHTML = 'carregando...';
@@ -533,7 +581,10 @@ const renderComparePokemon2 = async (pokemon) => {
 
         var images = {};
         images.front_default = new Image();
-        images.front_default.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
+        images.front_default.src =
+            data['sprites']['versions']['generation-v']['black-white'][
+                'animated'
+            ]['front_default'];
 
         updatePokemonImage(data, images);
 
@@ -550,7 +601,8 @@ const renderComparePokemon2 = async (pokemon) => {
         const radarData2 = getRadarData2();
 
         const ctxFight2 = select('.info-2');
-        const pokemonName2 = data.name.charAt(0).toUpperCase() + data.name.slice(1);
+        const pokemonName2 =
+            data.name.charAt(0).toUpperCase() + data.name.slice(1);
         infoFight2.innerHTML = pokemonName2;
 
         if (myChart2) {
@@ -560,11 +612,22 @@ const renderComparePokemon2 = async (pokemon) => {
             myChart2 = new Chart(ctxFight2, {
                 type: 'radar',
                 data: {
-                    labels: ['Vida', 'Ataque', 'Ataque especial', 'Velocidade', 'Defesa especial', 'Defesa'],
-                    datasets: [{
-                        data: radarData2,
-                        borderWidth: 1
-                    }]
+                    labels: [
+                        'Vida',
+                        'Ataque',
+                        'Ataque especial',
+                        'Velocidade',
+                        'Defesa especial',
+                        'Defesa',
+                    ],
+                    datasets: [
+                        {
+                            data: radarData2,
+                            borderWidth: 1,
+                            borderColor: corInfo2,
+                            backgroundColor: bgInfo2,
+                        },
+                    ],
                 },
                 options: {
                     scales: {
@@ -573,17 +636,24 @@ const renderComparePokemon2 = async (pokemon) => {
                             max: 255,
                             pointLabels: {
                                 font: {
-                                    size: window.innerWidth <= 767 ? 10 : (window.innerWidth <= 1269 ? 14 : (window.innerWidth <= 1760 ? 12 : 16))
-                                }
-                            }
-                        }
+                                    size:
+                                        window.innerWidth <= 767
+                                            ? 10
+                                            : window.innerWidth <= 1269
+                                            ? 14
+                                            : window.innerWidth <= 1760
+                                            ? 12
+                                            : 16,
+                                },
+                            },
+                        },
                     },
                     plugins: {
                         legend: {
-                            display: false
-                        }
-                    }
-                }
+                            display: false,
+                        },
+                    },
+                },
             });
         }
     }
@@ -595,7 +665,7 @@ const renderComparePokemon2 = async (pokemon) => {
             pokemonSpecialAttackC2.innerHTML,
             pokemonSpeedC2.innerHTML,
             pokemonSpecialDefenseC2.innerHTML,
-            pokemonDefenseC2.innerHTML
+            pokemonDefenseC2.innerHTML,
         ];
     }
 
@@ -607,11 +677,11 @@ const renderComparePokemon2 = async (pokemon) => {
         pokemonImageC2.onload = function () {
             pokemonImageC2.style.visibility = 'visible';
             loaderC2.style.visibility = 'hidden';
-        }
+        };
     }
 
     function displayStat(statName, element) {
-        const stat = data['stats'].find(stat => stat.stat.name === statName);
+        const stat = data['stats'].find((stat) => stat.stat.name === statName);
         if (stat) {
             element.innerHTML = stat['base_stat'];
         }
@@ -626,17 +696,16 @@ const renderComparePokemon2 = async (pokemon) => {
         displayStat('speed', pokemonSpeedC2);
 
         try {
-            let sum = (
+            let sum =
                 Number(pokemonHpC2.innerHTML) +
                 Number(pokemonAttackC2.innerHTML) +
                 Number(pokemonDefenseC2.innerHTML) +
                 Number(pokemonSpecialAttackC2.innerHTML) +
                 Number(pokemonSpecialDefenseC2.innerHTML) +
-                Number(pokemonSpeedC2.innerHTML
-                ));
+                Number(pokemonSpeedC2.innerHTML);
             sumC2 = sum;
         } catch (error) {
-            console.error("Ocorreu um erro ao calcular a soma: ", error);
+            console.error('Ocorreu um erro ao calcular a soma: ', error);
         }
     }
 
@@ -645,7 +714,7 @@ const renderComparePokemon2 = async (pokemon) => {
         const ulElement = select('.pokemon__type__compare2 ul');
         ulElement.innerHTML = '';
         fightC2 = [];
-        types.forEach(typeObj => {
+        types.forEach((typeObj) => {
             const typeName = typeObj['type']['name'];
             const liElement = document.createElement('li');
             const typeInfo = pokemonTypes[typeName];
@@ -671,25 +740,25 @@ const renderComparePokemon2 = async (pokemon) => {
         pokemonDefenseC2.innerHTML = '0';
         pokemonSpecialAttackC2.innerHTML = '0';
         pokemonSpecialDefenseC2.innerHTML = '0';
-        pokemonSpeedC2.innerHTML = '0'
+        pokemonSpeedC2.innerHTML = '0';
         pokemonTypeC2.style.display = 'none';
-        drawC1.style.opacity = "0";
-        drawC1.style.visibility = "hidden";
-        drawC2.style.opacity = "0";
-        drawC2.style.visibility = "hidden";
-        defeatC1.style.opacity = "0";
-        defeatC1.style.visibility = "hidden";
-        defeatC2.style.opacity = "0";
-        defeatC2.style.visibility = "hidden";
-        victoryC1.style.opacity = "0";
-        victoryC1.style.visibility = "hidden";
-        victoryC2.style.opacity = "0";
-        victoryC2.style.visibility = "hidden";
+        drawC1.style.opacity = '0';
+        drawC1.style.visibility = 'hidden';
+        drawC2.style.opacity = '0';
+        drawC2.style.visibility = 'hidden';
+        defeatC1.style.opacity = '0';
+        defeatC1.style.visibility = 'hidden';
+        defeatC2.style.opacity = '0';
+        defeatC2.style.visibility = 'hidden';
+        victoryC1.style.opacity = '0';
+        victoryC1.style.visibility = 'hidden';
+        victoryC2.style.opacity = '0';
+        victoryC2.style.visibility = 'hidden';
         searchPokemonC2 = data.id;
     }
 
     imagesLoaded++;
-}
+};
 
 function handleNoPokemonData() {
     input.value = '';
@@ -740,7 +809,7 @@ btnNext.addEventListener('click', () => {
         searchPokemon += 1;
         renderMainPokemon(searchPokemon);
     } else {
-        searchPokemon = 1
+        searchPokemon = 1;
         renderMainPokemon(searchPokemon);
     }
 });
@@ -833,8 +902,8 @@ btnCompare.addEventListener('click', () => {
         compareClose.classList.remove('compare-close');
         compareInfo.classList.add('compare-info-dark');
         compareInfo.classList.remove('compare-info');
-        vsCompare.style.display = "none";
-        vsDarkCompare.style.display = "block";
+        vsCompare.style.display = 'none';
+        vsDarkCompare.style.display = 'block';
     } else {
         mainBg.classList.remove('body-bg');
         mainBg.classList.add('compare-bg');
@@ -845,11 +914,9 @@ btnCompare.addEventListener('click', () => {
         compareClose.classList.add('compare-close');
         compareInfo.classList.remove('compare-info-dark');
         compareInfo.classList.add('compare-info');
-        vsCompare.style.display = "block";
-        vsDarkCompare.style.display = "none";
+        vsCompare.style.display = 'block';
+        vsDarkCompare.style.display = 'none';
     }
-
-
 });
 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -861,12 +928,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
             mainBg.classList.remove('body-bg');
             mainBg.classList.remove('compare-bg');
             mainBg.classList.add('dark-bg');
-
         } else {
             mainBg.classList.add('body-bg');
             mainBg.classList.remove('compare-bg');
             mainBg.classList.remove('dark-bg');
-
         }
     });
 
@@ -928,7 +993,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             searchPokemonC1 += 1;
             renderComparePokemon1(searchPokemonC1);
         } else {
-            searchPokemonC1 = 1
+            searchPokemonC1 = 1;
             renderComparePokemon1(searchPokemonC1);
         }
     });
@@ -960,15 +1025,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
             searchPokemonC2 += 1;
             renderComparePokemon2(searchPokemonC2);
         } else {
-            searchPokemonC2 = 1
+            searchPokemonC2 = 1;
             renderComparePokemon2(searchPokemonC2);
         }
     });
 });
 
 function calcWeakRes(sumC1Modified, sumC2Modified) {
-    fightC1.forEach(type1 => {
-        fightC2.forEach(type2 => {
+    fightC1.forEach((type1) => {
+        fightC2.forEach((type2) => {
             if (tipos[type1] && tipos[type1]['fraqueza'].includes(type2)) {
                 sumC1Modified *= 0.5;
                 sumC2Modified *= 2;
@@ -976,8 +1041,8 @@ function calcWeakRes(sumC1Modified, sumC2Modified) {
         });
     });
 
-    fightC2.forEach(type2 => {
-        fightC1.forEach(type1 => {
+    fightC2.forEach((type2) => {
+        fightC1.forEach((type1) => {
             if (tipos[type2] && tipos[type2]['fraqueza'].includes(type1)) {
                 sumC2Modified *= 0.5;
                 sumC1Modified *= 2;
@@ -1001,19 +1066,26 @@ function fight() {
     [sumC1Modified, sumC2Modified] = calcWeakRes(sumC1Modified, sumC2Modified);
 
     try {
-        if (pokemonNameC1.innerHTML == 'não encontrado :(' || pokemonNameC2.innerHTML == 'não encontrado :(') {
-            drawC1.style.opacity = "0";
-            drawC1.style.visibility = "hidden";
-            drawC2.style.opacity = "0";
-            drawC2.style.visibility = "hidden";
-            defeatC1.style.opacity = "0";
-            defeatC1.style.visibility = "hidden";
-            defeatC2.style.opacity = "0";
-            defeatC2.style.visibility = "hidden";
-            victoryC1.style.opacity = "0";
-            victoryC1.style.visibility = "hidden";
-            victoryC2.style.opacity = "0";
-            victoryC2.style.visibility = "hidden";
+        if (
+            pokemonNameC1.innerHTML == 'não encontrado :(' ||
+            pokemonNameC2.innerHTML == 'não encontrado :('
+        ) {
+            drawC1.style.opacity = '0';
+            drawC1.style.visibility = 'hidden';
+            drawC2.style.opacity = '0';
+            drawC2.style.visibility = 'hidden';
+            defeatC1.style.opacity = '0';
+            defeatC1.style.visibility = 'hidden';
+            defeatC2.style.opacity = '0';
+            defeatC2.style.visibility = 'hidden';
+            victoryC1.style.opacity = '0';
+            victoryC1.style.visibility = 'hidden';
+            victoryC2.style.opacity = '0';
+            victoryC2.style.visibility = 'hidden';
+            // corInfo1 = 'rgba(54, 162, 235, 0.8)';
+            // bgInfo1 = 'rgba(155, 208, 245, 0.5)';
+            // corInfo2 = 'rgba(54, 162, 235, 0.8)';
+            // bgInfo2 = 'rgba(155, 208, 245, 0.5)';
             return;
         }
 
@@ -1021,65 +1093,75 @@ function fight() {
             resetAnimation(drawC1);
             resetAnimation(drawC2);
 
-            drawC1.style.opacity = "0.8";
-            drawC1.style.visibility = "visible";
-            drawC2.style.opacity = "0.8";
-            drawC2.style.visibility = "visible";
-            defeatC1.style.opacity = "0";
-            defeatC1.style.visibility = "hidden";
-            defeatC2.style.opacity = "0";
-            defeatC2.style.visibility = "hidden";
-            victoryC1.style.opacity = "0";
-            victoryC1.style.visibility = "hidden";
-            victoryC2.style.opacity = "0";
-            victoryC2.style.visibility = "hidden";
+            drawC1.style.opacity = '0.8';
+            drawC1.style.visibility = 'visible';
+            drawC2.style.opacity = '0.8';
+            drawC2.style.visibility = 'visible';
+            defeatC1.style.opacity = '0';
+            defeatC1.style.visibility = 'hidden';
+            defeatC2.style.opacity = '0';
+            defeatC2.style.visibility = 'hidden';
+            victoryC1.style.opacity = '0';
+            victoryC1.style.visibility = 'hidden';
+            victoryC2.style.opacity = '0';
+            victoryC2.style.visibility = 'hidden';
+            corInfo1 = 'rgba(255, 145, 77, 0.8)';
+            bgInfo1 = 'rgba(251, 236, 166, 0.5)';
+            corInfo2 = 'rgba(255, 145, 77, 0.8)';
+            bgInfo2 = 'rgba(251, 236, 166, 0.5)';
         } else if (sumC1Modified > sumC2Modified) {
             resetAnimation(defeatC2);
             resetAnimation(victoryC1);
 
-            drawC1.style.opacity = "0";
-            drawC1.style.visibility = "hidden";
-            drawC2.style.opacity = "0";
-            drawC2.style.visibility = "hidden";
-            defeatC1.style.opacity = "0";
-            defeatC1.style.visibility = "hidden";
-            defeatC2.style.opacity = "0.8";
-            defeatC2.style.visibility = "visible";
-            victoryC1.style.opacity = "0.8";
-            victoryC1.style.visibility = "visible";
-            victoryC2.style.opacity = "0";
-            victoryC2.style.visibility = "hidden";
+            drawC1.style.opacity = '0';
+            drawC1.style.visibility = 'hidden';
+            drawC2.style.opacity = '0';
+            drawC2.style.visibility = 'hidden';
+            defeatC1.style.opacity = '0';
+            defeatC1.style.visibility = 'hidden';
+            defeatC2.style.opacity = '0.8';
+            defeatC2.style.visibility = 'visible';
+            victoryC1.style.opacity = '0.8';
+            victoryC1.style.visibility = 'visible';
+            victoryC2.style.opacity = '0';
+            victoryC2.style.visibility = 'hidden';
+            corInfo1 = 'rgba(173, 255, 47, 0.8)';
+            bgInfo1 = 'rgba(0, 128, 0, 0.5)';
+            corInfo2 = 'rgba(255, 69, 0, 0.8)';
+            bgInfo2 = 'rgba(139, 0, 0, 0.5)';
         } else if (sumC1Modified < sumC2Modified) {
             resetAnimation(defeatC1);
             resetAnimation(victoryC2);
 
-            drawC1.style.opacity = "0";
-            drawC1.style.visibility = "hidden";
-            drawC2.style.opacity = "0";
-            drawC2.style.visibility = "hidden";
-            defeatC1.style.opacity = "0.8";
-            defeatC1.style.visibility = "visible";
-            defeatC2.style.opacity = "0";
-            defeatC2.style.visibility = "hidden";
-            victoryC1.style.opacity = "0";
-            victoryC1.style.visibility = "hidden";
-            victoryC2.style.opacity = "0.8";
-            victoryC2.style.visibility = "visible";
+            drawC1.style.opacity = '0';
+            drawC1.style.visibility = 'hidden';
+            drawC2.style.opacity = '0';
+            drawC2.style.visibility = 'hidden';
+            defeatC1.style.opacity = '0.8';
+            defeatC1.style.visibility = 'visible';
+            defeatC2.style.opacity = '0';
+            defeatC2.style.visibility = 'hidden';
+            victoryC1.style.opacity = '0';
+            victoryC1.style.visibility = 'hidden';
+            victoryC2.style.opacity = '0.8';
+            victoryC2.style.visibility = 'visible';
         }
 
         select('.status-total1').textContent = sumC1;
         select('.status-total2').textContent = sumC2;
         select('.buff-debuff1').textContent = sumC1Modified.toFixed(0);
         select('.buff-debuff2').textContent = sumC2Modified.toFixed(0);
-
     } catch (error) {
-        console.error("Ocorreu um erro na luta: ", error);
+        console.error('Ocorreu um erro na luta: ', error);
     }
 }
 
 const observer = new MutationObserver((mutationsList, observer) => {
     for (let mutation of mutationsList) {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
+        if (
+            mutation.type === 'attributes' &&
+            mutation.attributeName === 'src'
+        ) {
             if (imagesLoaded >= 2) {
                 fight(sumC1, sumC2);
             }
@@ -1101,7 +1183,9 @@ const pokemons = [];
 async function fetchAllPokemon() {
     for (let id = 1; id <= MAX_POKEMON_NUMBER; id++) {
         try {
-            const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+            const response = await axios.get(
+                `https://pokeapi.co/api/v2/pokemon/${id}`,
+            );
             if (response.status === 200) {
                 const { name } = response.data;
                 pokemons.push({ id, name });
@@ -1118,7 +1202,11 @@ fetchAllPokemon();
 
 function filterPokemonList(userInput) {
     const lowerCaseInput = userInput.toLowerCase();
-    return pokemons.filter(pokemon => pokemon.name.toLowerCase().startsWith(lowerCaseInput) || pokemon.id.toString() === userInput);
+    return pokemons.filter(
+        (pokemon) =>
+            pokemon.name.toLowerCase().startsWith(lowerCaseInput) ||
+            pokemon.id.toString() === userInput,
+    );
 }
 
 function updateSuggestionsUI(suggestions) {
@@ -1126,9 +1214,11 @@ function updateSuggestionsUI(suggestions) {
 
     suggestionsElement.innerHTML = '';
 
-    suggestions.forEach(suggestion => {
+    suggestions.forEach((suggestion) => {
         const listItem = document.createElement('li');
-        listItem.textContent = `${suggestion.id} - ${suggestion.name.charAt(0).toUpperCase() + suggestion.name.slice(1)}`;
+        listItem.textContent = `${suggestion.id} - ${
+            suggestion.name.charAt(0).toUpperCase() + suggestion.name.slice(1)
+        }`;
 
         listItem.addEventListener('click', () => {
             suggestionsElement.innerHTML = '';
@@ -1164,7 +1254,10 @@ document.addEventListener('click', (event) => {
     const inputElement = document.querySelector('.input__search');
     const suggestionsElement = document.querySelector('.suggestions');
 
-    if (!inputElement.contains(event.target) && !suggestionsElement.contains(event.target)) {
+    if (
+        !inputElement.contains(event.target) &&
+        !suggestionsElement.contains(event.target)
+    ) {
         suggestionsElement.classList.add('hidden');
     }
 });
@@ -1180,19 +1273,25 @@ document.querySelector('.input__search').addEventListener('focus', (event) => {
     }
 });
 
-document.querySelector('.input__search').addEventListener('keydown', (event) => {
-    const suggestionsElement = document.querySelector('.suggestions');
+document
+    .querySelector('.input__search')
+    .addEventListener('keydown', (event) => {
+        const suggestionsElement = document.querySelector('.suggestions');
 
-    if (event.key === 'Enter') {
-        suggestionsElement.classList.add('hidden');
-    }
-});
+        if (event.key === 'Enter') {
+            suggestionsElement.classList.add('hidden');
+        }
+    });
 
 //C1
 
 function filterPokemonListC1(userInput) {
     const lowerCaseInput = userInput.toLowerCase();
-    return pokemons.filter(pokemon => pokemon.name.toLowerCase().startsWith(lowerCaseInput) || pokemon.id.toString() === userInput);
+    return pokemons.filter(
+        (pokemon) =>
+            pokemon.name.toLowerCase().startsWith(lowerCaseInput) ||
+            pokemon.id.toString() === userInput,
+    );
 }
 
 function updateSuggestionsUIC1(suggestions) {
@@ -1200,9 +1299,11 @@ function updateSuggestionsUIC1(suggestions) {
 
     suggestionsElement.innerHTML = '';
 
-    suggestions.forEach(suggestion => {
+    suggestions.forEach((suggestion) => {
         const listItem = document.createElement('li');
-        listItem.textContent = `${suggestion.id} - ${suggestion.name.charAt(0).toUpperCase() + suggestion.name.slice(1)}`;
+        listItem.textContent = `${suggestion.id} - ${
+            suggestion.name.charAt(0).toUpperCase() + suggestion.name.slice(1)
+        }`;
 
         listItem.addEventListener('click', () => {
             suggestionsElement.innerHTML = '';
@@ -1215,58 +1316,77 @@ function updateSuggestionsUIC1(suggestions) {
     suggestionsElement.scrollTop = 0;
 }
 
-document.querySelector('.input__search__compare1').addEventListener('input', (event) => {
-    const userInput = event.target.value;
-    const suggestionsElement = document.querySelector('.suggestions__compare1');
+document
+    .querySelector('.input__search__compare1')
+    .addEventListener('input', (event) => {
+        const userInput = event.target.value;
+        const suggestionsElement = document.querySelector(
+            '.suggestions__compare1',
+        );
 
-    if (userInput === '') {
-        updateSuggestionsUIC1([]);
-        suggestionsElement.classList.add('hidden');
-    } else {
-        const suggestions = filterPokemonListC1(userInput);
-        updateSuggestionsUIC1(suggestions);
-
-        if (suggestions.length > 0) {
-            suggestionsElement.classList.remove('hidden');
-        } else {
+        if (userInput === '') {
+            updateSuggestionsUIC1([]);
             suggestionsElement.classList.add('hidden');
+        } else {
+            const suggestions = filterPokemonListC1(userInput);
+            updateSuggestionsUIC1(suggestions);
+
+            if (suggestions.length > 0) {
+                suggestionsElement.classList.remove('hidden');
+            } else {
+                suggestionsElement.classList.add('hidden');
+            }
         }
-    }
-});
+    });
 
 document.addEventListener('click', (event) => {
     const inputElement = document.querySelector('.input__search__compare1');
     const suggestionsElement = document.querySelector('.suggestions__compare1');
 
-    if (!inputElement.contains(event.target) && !suggestionsElement.contains(event.target)) {
+    if (
+        !inputElement.contains(event.target) &&
+        !suggestionsElement.contains(event.target)
+    ) {
         suggestionsElement.classList.add('hidden');
     }
 });
 
-document.querySelector('.input__search__compare1').addEventListener('focus', (event) => {
-    const userInput = event.target.value;
-    const suggestionsElement = document.querySelector('.suggestions__compare1');
+document
+    .querySelector('.input__search__compare1')
+    .addEventListener('focus', (event) => {
+        const userInput = event.target.value;
+        const suggestionsElement = document.querySelector(
+            '.suggestions__compare1',
+        );
 
-    if (userInput !== '') {
-        const suggestions = filterPokemonListC1(userInput);
-        updateSuggestionsUI(suggestions);
-        suggestionsElement.classList.remove('hidden');
-    }
-});
+        if (userInput !== '') {
+            const suggestions = filterPokemonListC1(userInput);
+            updateSuggestionsUI(suggestions);
+            suggestionsElement.classList.remove('hidden');
+        }
+    });
 
-document.querySelector('.input__search__compare1').addEventListener('keydown', (event) => {
-    const suggestionsElement = document.querySelector('.suggestions__compare1');
+document
+    .querySelector('.input__search__compare1')
+    .addEventListener('keydown', (event) => {
+        const suggestionsElement = document.querySelector(
+            '.suggestions__compare1',
+        );
 
-    if (event.key === 'Enter') {
-        suggestionsElement.classList.add('hidden');
-    }
-});
+        if (event.key === 'Enter') {
+            suggestionsElement.classList.add('hidden');
+        }
+    });
 
 //C2
 
 function filterPokemonListC2(userInput) {
     const lowerCaseInput = userInput.toLowerCase();
-    return pokemons.filter(pokemon => pokemon.name.toLowerCase().startsWith(lowerCaseInput) || pokemon.id.toString() === userInput);
+    return pokemons.filter(
+        (pokemon) =>
+            pokemon.name.toLowerCase().startsWith(lowerCaseInput) ||
+            pokemon.id.toString() === userInput,
+    );
 }
 
 function updateSuggestionsUIC2(suggestions) {
@@ -1274,9 +1394,11 @@ function updateSuggestionsUIC2(suggestions) {
 
     suggestionsElement.innerHTML = '';
 
-    suggestions.forEach(suggestion => {
+    suggestions.forEach((suggestion) => {
         const listItem = document.createElement('li');
-        listItem.textContent = `${suggestion.id} - ${suggestion.name.charAt(0).toUpperCase() + suggestion.name.slice(1)}`;
+        listItem.textContent = `${suggestion.id} - ${
+            suggestion.name.charAt(0).toUpperCase() + suggestion.name.slice(1)
+        }`;
 
         listItem.addEventListener('click', () => {
             suggestionsElement.innerHTML = '';
@@ -1289,49 +1411,64 @@ function updateSuggestionsUIC2(suggestions) {
     suggestionsElement.scrollTop = 0;
 }
 
-document.querySelector('.input__search__compare2').addEventListener('input', (event) => {
-    const userInput = event.target.value;
-    const suggestionsElement = document.querySelector('.suggestions__compare2');
+document
+    .querySelector('.input__search__compare2')
+    .addEventListener('input', (event) => {
+        const userInput = event.target.value;
+        const suggestionsElement = document.querySelector(
+            '.suggestions__compare2',
+        );
 
-    if (userInput === '') {
-        updateSuggestionsUIC2([]);
-        suggestionsElement.classList.add('hidden');
-    } else {
-        const suggestions = filterPokemonListC2(userInput);
-        updateSuggestionsUIC2(suggestions);
-
-        if (suggestions.length > 0) {
-            suggestionsElement.classList.remove('hidden');
-        } else {
+        if (userInput === '') {
+            updateSuggestionsUIC2([]);
             suggestionsElement.classList.add('hidden');
+        } else {
+            const suggestions = filterPokemonListC2(userInput);
+            updateSuggestionsUIC2(suggestions);
+
+            if (suggestions.length > 0) {
+                suggestionsElement.classList.remove('hidden');
+            } else {
+                suggestionsElement.classList.add('hidden');
+            }
         }
-    }
-});
+    });
 
 document.addEventListener('click', (event) => {
     const inputElement = document.querySelector('.input__search__compare2');
     const suggestionsElement = document.querySelector('.suggestions__compare2');
 
-    if (!inputElement.contains(event.target) && !suggestionsElement.contains(event.target)) {
+    if (
+        !inputElement.contains(event.target) &&
+        !suggestionsElement.contains(event.target)
+    ) {
         suggestionsElement.classList.add('hidden');
     }
 });
 
-document.querySelector('.input__search__compare2').addEventListener('focus', (event) => {
-    const userInput = event.target.value;
-    const suggestionsElement = document.querySelector('.suggestions__compare2');
+document
+    .querySelector('.input__search__compare2')
+    .addEventListener('focus', (event) => {
+        const userInput = event.target.value;
+        const suggestionsElement = document.querySelector(
+            '.suggestions__compare2',
+        );
 
-    if (userInput !== '') {
-        const suggestions = filterPokemonListC2(userInput);
-        updateSuggestionsUI(suggestions);
-        suggestionsElement.classList.remove('hidden');
-    }
-});
+        if (userInput !== '') {
+            const suggestions = filterPokemonListC2(userInput);
+            updateSuggestionsUI(suggestions);
+            suggestionsElement.classList.remove('hidden');
+        }
+    });
 
-document.querySelector('.input__search__compare2').addEventListener('keydown', (event) => {
-    const suggestionsElement = document.querySelector('.suggestions__compare2');
+document
+    .querySelector('.input__search__compare2')
+    .addEventListener('keydown', (event) => {
+        const suggestionsElement = document.querySelector(
+            '.suggestions__compare2',
+        );
 
-    if (event.key === 'Enter') {
-        suggestionsElement.classList.add('hidden');
-    }
-});
+        if (event.key === 'Enter') {
+            suggestionsElement.classList.add('hidden');
+        }
+    });
