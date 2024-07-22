@@ -88,10 +88,10 @@ let fightC1 = [];
 let fightC2 = [];
 let myChart1;
 let myChart2;
-let corInfo1 = '';
-let bgInfo1 = '';
-let corInfo2 = '';
-let bgInfo2 = '';
+// let corInfo1 = '';
+// let bgInfo1 = '';
+// let corInfo2 = '';
+// let bgInfo2 = '';
 
 // efeito pokédex abrindo
 if (window.innerWidth > 1270) {
@@ -421,8 +421,8 @@ const renderComparePokemon1 = async (pokemon) => {
                         {
                             data: radarData1,
                             borderWidth: 1,
-                            borderColor: corInfo1,
-                            backgroundColor: bgInfo1,
+                            // borderColor: corInfo1,
+                            // backgroundColor: bgInfo1,
                         },
                     ],
                 },
@@ -553,7 +553,6 @@ const renderComparePokemon1 = async (pokemon) => {
         victoryC2.style.visibility = 'hidden';
         searchPokemonC1 = data.id;
     }
-
     imagesLoaded++;
 };
 
@@ -624,8 +623,8 @@ const renderComparePokemon2 = async (pokemon) => {
                         {
                             data: radarData2,
                             borderWidth: 1,
-                            borderColor: corInfo2,
-                            backgroundColor: bgInfo2,
+                            // borderColor: corInfo2,
+                            // backgroundColor: bgInfo2,
                         },
                     ],
                 },
@@ -1105,10 +1104,11 @@ function fight() {
             victoryC1.style.visibility = 'hidden';
             victoryC2.style.opacity = '0';
             victoryC2.style.visibility = 'hidden';
-            corInfo1 = 'rgba(255, 145, 77, 0.8)';
-            bgInfo1 = 'rgba(251, 236, 166, 0.5)';
-            corInfo2 = 'rgba(255, 145, 77, 0.8)';
-            bgInfo2 = 'rgba(251, 236, 166, 0.5)';
+
+            // corInfo1 = 'rgba(255, 145, 77, 0.8)';
+            // bgInfo1 = 'rgba(251, 236, 166, 0.5)';
+            // corInfo2 = 'rgba(255, 145, 77, 0.8)';
+            // bgInfo2 = 'rgba(251, 236, 166, 0.5)';
         } else if (sumC1Modified > sumC2Modified) {
             resetAnimation(defeatC2);
             resetAnimation(victoryC1);
@@ -1125,10 +1125,11 @@ function fight() {
             victoryC1.style.visibility = 'visible';
             victoryC2.style.opacity = '0';
             victoryC2.style.visibility = 'hidden';
-            corInfo1 = 'rgba(173, 255, 47, 0.8)';
-            bgInfo1 = 'rgba(0, 128, 0, 0.5)';
-            corInfo2 = 'rgba(255, 69, 0, 0.8)';
-            bgInfo2 = 'rgba(139, 0, 0, 0.5)';
+
+            // corInfo1 = 'rgba(173, 255, 47, 0.8)';
+            // bgInfo1 = 'rgba(0, 128, 0, 0.5)';
+            // corInfo2 = 'rgba(255, 69, 0, 0.8)';
+            // bgInfo2 = 'rgba(139, 0, 0, 0.5)';
         } else if (sumC1Modified < sumC2Modified) {
             resetAnimation(defeatC1);
             resetAnimation(victoryC2);
@@ -1145,12 +1146,24 @@ function fight() {
             victoryC1.style.visibility = 'hidden';
             victoryC2.style.opacity = '0.8';
             victoryC2.style.visibility = 'visible';
+
+            // corInfo1 = 'rgba(255, 69, 0, 0.8)';
+            // bgInfo1 = 'rgba(139, 0, 0, 0.5)';
+            // corInfo2 = 'rgba(173, 255, 47, 0.8)';
+            // bgInfo2 = 'rgba(0, 128, 0, 0.5)';
         }
 
         select('.status-total1').textContent = sumC1;
         select('.status-total2').textContent = sumC2;
         select('.buff-debuff1').textContent = sumC1Modified.toFixed(0);
         select('.buff-debuff2').textContent = sumC2Modified.toFixed(0);
+
+        // return {
+        //     corInfo1: corInfo1,
+        //     bgInfo1: bgInfo1,
+        //     corInfo2: corInfo2,
+        //     bgInfo2: bgInfo2,
+        // };
     } catch (error) {
         console.error('Ocorreu um erro na luta: ', error);
     }
