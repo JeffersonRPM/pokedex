@@ -75,6 +75,8 @@ const pokeMobile = select('.pokedex-mobile');
 const flex = select('.flex');
 const infoFight1 = select('.info-fight1');
 const infoFight2 = select('.info-fight2');
+const ctxFight1 = select('.info-1');
+const gridInfo = select('.grid-info');
 
 const MAX_POKEMON_NUMBER = 649;
 
@@ -88,10 +90,6 @@ let fightC1 = [];
 let fightC2 = [];
 let myChart1;
 let myChart2;
-// let corInfo1 = '';
-// let bgInfo1 = '';
-// let corInfo2 = '';
-// let bgInfo2 = '';
 
 // efeito pokédex abrindo
 if (window.innerWidth > 1270) {
@@ -397,7 +395,6 @@ const renderComparePokemon1 = async (pokemon) => {
         // Informações de combate
         const radarData1 = getRadarData1();
 
-        const ctxFight1 = select('.info-1');
         const pokemonName1 =
             data.name.charAt(0).toUpperCase() + data.name.slice(1);
         infoFight1.innerHTML = pokemonName1;
@@ -421,8 +418,6 @@ const renderComparePokemon1 = async (pokemon) => {
                         {
                             data: radarData1,
                             borderWidth: 1,
-                            // borderColor: corInfo1,
-                            // backgroundColor: bgInfo1,
                         },
                     ],
                 },
@@ -623,8 +618,6 @@ const renderComparePokemon2 = async (pokemon) => {
                         {
                             data: radarData2,
                             borderWidth: 1,
-                            // borderColor: corInfo2,
-                            // backgroundColor: bgInfo2,
                         },
                     ],
                 },
@@ -821,6 +814,7 @@ gear.addEventListener('click', (event) => {
 compareInfo.addEventListener('click', (event) => {
     event.stopPropagation();
     menuInfo.classList.toggle('show');
+    fight();
 });
 
 menu.addEventListener('click', (event) => {
@@ -1081,10 +1075,7 @@ function fight() {
             victoryC1.style.visibility = 'hidden';
             victoryC2.style.opacity = '0';
             victoryC2.style.visibility = 'hidden';
-            // corInfo1 = 'rgba(54, 162, 235, 0.8)';
-            // bgInfo1 = 'rgba(155, 208, 245, 0.5)';
-            // corInfo2 = 'rgba(54, 162, 235, 0.8)';
-            // bgInfo2 = 'rgba(155, 208, 245, 0.5)';
+            gridInfo.style.visibility = 'hidden';
             return;
         }
 
@@ -1104,11 +1095,7 @@ function fight() {
             victoryC1.style.visibility = 'hidden';
             victoryC2.style.opacity = '0';
             victoryC2.style.visibility = 'hidden';
-
-            // corInfo1 = 'rgba(255, 145, 77, 0.8)';
-            // bgInfo1 = 'rgba(251, 236, 166, 0.5)';
-            // corInfo2 = 'rgba(255, 145, 77, 0.8)';
-            // bgInfo2 = 'rgba(251, 236, 166, 0.5)';
+            gridInfo.style.visibility = 'visible';
         } else if (sumC1Modified > sumC2Modified) {
             resetAnimation(defeatC2);
             resetAnimation(victoryC1);
@@ -1125,11 +1112,7 @@ function fight() {
             victoryC1.style.visibility = 'visible';
             victoryC2.style.opacity = '0';
             victoryC2.style.visibility = 'hidden';
-
-            // corInfo1 = 'rgba(173, 255, 47, 0.8)';
-            // bgInfo1 = 'rgba(0, 128, 0, 0.5)';
-            // corInfo2 = 'rgba(255, 69, 0, 0.8)';
-            // bgInfo2 = 'rgba(139, 0, 0, 0.5)';
+            gridInfo.style.visibility = 'visible';
         } else if (sumC1Modified < sumC2Modified) {
             resetAnimation(defeatC1);
             resetAnimation(victoryC2);
@@ -1146,24 +1129,13 @@ function fight() {
             victoryC1.style.visibility = 'hidden';
             victoryC2.style.opacity = '0.8';
             victoryC2.style.visibility = 'visible';
-
-            // corInfo1 = 'rgba(255, 69, 0, 0.8)';
-            // bgInfo1 = 'rgba(139, 0, 0, 0.5)';
-            // corInfo2 = 'rgba(173, 255, 47, 0.8)';
-            // bgInfo2 = 'rgba(0, 128, 0, 0.5)';
+            gridInfo.style.visibility = 'visible';
         }
 
         select('.status-total1').textContent = sumC1;
         select('.status-total2').textContent = sumC2;
         select('.buff-debuff1').textContent = sumC1Modified.toFixed(0);
         select('.buff-debuff2').textContent = sumC2Modified.toFixed(0);
-
-        // return {
-        //     corInfo1: corInfo1,
-        //     bgInfo1: bgInfo1,
-        //     corInfo2: corInfo2,
-        //     bgInfo2: bgInfo2,
-        // };
     } catch (error) {
         console.error('Ocorreu um erro na luta: ', error);
     }
