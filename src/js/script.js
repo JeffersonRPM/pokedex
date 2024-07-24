@@ -92,8 +92,6 @@ let myChart1;
 let myChart2;
 let fraquezaInfo1 = '';
 let fraquezaInfo2 = '';
-let vantagemInfo1 = '';
-let vantagemInfo2 = '';
 
 // efeito pokédex abrindo
 if (window.innerWidth > 1270) {
@@ -1031,8 +1029,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 function calcWeakRes(sumC1Modified, sumC2Modified) {
     fraquezaInfo1 = '';
     fraquezaInfo2 = '';
-    vantagemInfo1 = '';
-    vantagemInfo2 = '';
 
     fightC1.forEach((type1) => {
         fightC2.forEach((type2) => {
@@ -1040,7 +1036,6 @@ function calcWeakRes(sumC1Modified, sumC2Modified) {
                 sumC1Modified *= 0.5;
                 sumC2Modified *= 2;
                 fraquezaInfo1 = `O tipo ${type1} perde para o tipo ${type2}.`;
-                vantagemInfo2 = `O tipo ${type2} ganha do tipo ${type1}.`;
             }
         });
     });
@@ -1051,7 +1046,6 @@ function calcWeakRes(sumC1Modified, sumC2Modified) {
                 sumC2Modified *= 0.5;
                 sumC1Modified *= 2;
                 fraquezaInfo2 = `O tipo ${type2} perde para o tipo ${type1}.`;
-                vantagemInfo1 = `O tipo ${type1} ganha do tipo ${type2}.`;
             }
         });
     });
@@ -1061,12 +1055,6 @@ function calcWeakRes(sumC1Modified, sumC2Modified) {
     }
     if (!fraquezaInfo2) {
         fraquezaInfo2 = '';
-    }
-    if (!vantagemInfo1) {
-        vantagemInfo1 = '';
-    }
-    if (!vantagemInfo2) {
-        vantagemInfo2 = '';
     }
 
     return [sumC1Modified, sumC2Modified, fraquezaInfo1, fraquezaInfo2];
@@ -1164,8 +1152,6 @@ function fight() {
         select('.buff-debuff2').textContent = sumC2Modified.toFixed(0);
         select('.fraquezaInfo1').textContent = fraquezaInfo1;
         select('.fraquezaInfo2').textContent = fraquezaInfo2;
-        select('.vantagemInfo1').textContent = vantagemInfo1;
-        select('.vantagemInfo2').textContent = vantagemInfo2;
     } catch (error) {
         console.error('Ocorreu um erro na luta: ', error);
     }
