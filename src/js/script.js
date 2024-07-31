@@ -1051,10 +1051,10 @@ function calcWeakRes(sumC1Modified, sumC2Modified) {
     });
 
     if (!fraquezaInfo1) {
-        fraquezaInfo1 = '';
+        fraquezaInfo1 = '-';
     }
     if (!fraquezaInfo2) {
-        fraquezaInfo2 = '';
+        fraquezaInfo2 = '-';
     }
 
     return [sumC1Modified, sumC2Modified, fraquezaInfo1, fraquezaInfo2];

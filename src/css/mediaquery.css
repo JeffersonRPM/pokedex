@@ -302,7 +302,9 @@
         display: none;
     }
 
-    .div-fraquezas {
+    .div-fraquezas,
+    .fraquezaInfo1,
+    .fraquezaInfo2 {
         display: none;
     }
 }
@@ -624,7 +626,9 @@
         display: none;
     }
 
-    .div-fraquezas {
+    .div-fraquezas,
+    .fraquezaInfo1,
+    .fraquezaInfo2 {
         display: none;
     }
 }
@@ -895,7 +899,7 @@
     }
 
     .div-fraquezas {
-        margin-top: 5%;
+        margin-top: 4%;
     }
 
     .i-fraquezas-message {
