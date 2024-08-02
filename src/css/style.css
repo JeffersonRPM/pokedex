@@ -911,7 +911,7 @@ div.pokemon__type__compare2 ul.effect-text li {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1.8%;
+    margin-top: 1%;
 }
 
 .i-fraquezas-message {
@@ -1119,4 +1119,10 @@ div.pokemon__type__compare2 ul.effect-text li {
         rgb(86, 156, 217),
         rgb(86, 156, 217, 0.65)
     );
+}
+
+.fraquezaInfo1,
+.fraquezaInfo2 {
+    text-align: center;
+    font-size: 18px;
 }

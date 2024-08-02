@@ -77,6 +77,8 @@ const infoFight1 = select('.info-fight1');
 const infoFight2 = select('.info-fight2');
 const ctxFight1 = select('.info-1');
 const gridInfo = select('.grid-info');
+const marginFraqueza1 = select('.margin-fraqueza1');
+const marginFraqueza2 = select('.margin-fraqueza2');
 
 const MAX_POKEMON_NUMBER = 649;
 
@@ -92,6 +94,8 @@ let myChart1;
 let myChart2;
 let fraquezaInfo1 = '';
 let fraquezaInfo2 = '';
+let sumC1noModified = 0;
+let sumC2noModified = 0;
 
 // efeito pokédex abrindo
 if (window.innerWidth > 1270) {
@@ -1030,12 +1034,35 @@ function calcWeakRes(sumC1Modified, sumC2Modified) {
     fraquezaInfo1 = '';
     fraquezaInfo2 = '';
 
+    sumC1noModified = sumC1Modified;
+    sumC2noModified = sumC2Modified;
+
     fightC1.forEach((type1) => {
         fightC2.forEach((type2) => {
             if (tipos[type1] && tipos[type1]['fraqueza'].includes(type2)) {
                 sumC1Modified *= 0.5;
                 sumC2Modified *= 2;
-                fraquezaInfo1 = `O tipo ${type1} perde para o tipo ${type2}.`;
+
+                if (sumC1noModified > sumC2noModified) {
+                    if (sumC1Modified > sumC2Modified) {
+                        fraquezaInfo1 = `Embora o status total seja maior, o tipo ${type1} perde para o tipo ${type2} no elemento.`;
+                        marginFraqueza1.style.display = 'none';
+                    } else {
+                        fraquezaInfo1 = `Status total maior, porém, o tipo ${type1} perde para o tipo ${type2} no elemento.`;
+                        marginFraqueza1.style.display = 'none';
+                    }
+                } else if (sumC1noModified === sumC2noModified) {
+                    fraquezaInfo1 = `Empate, pois os status totais de ambos são iguais.`;
+                    marginFraqueza1.style.display = 'block';
+                } else {
+                    if (sumC1Modified > sumC2Modified) {
+                        fraquezaInfo1 = `Embora o status total seja menor, o tipo ${type1} ganha do tipo ${type2} no elemento.`;
+                        marginFraqueza1.style.display = 'none';
+                    } else {
+                        fraquezaInfo1 = `Além do status total ser menor, o tipo ${type1} perde para o tipo ${type2} no elemento.`;
+                        marginFraqueza1.style.display = 'none';
+                    }
+                }
             }
         });
     });
@@ -1045,16 +1072,40 @@ function calcWeakRes(sumC1Modified, sumC2Modified) {
             if (tipos[type2] && tipos[type2]['fraqueza'].includes(type1)) {
                 sumC2Modified *= 0.5;
                 sumC1Modified *= 2;
-                fraquezaInfo2 = `O tipo ${type2} perde para o tipo ${type1}.`;
+
+                if (sumC2noModified > sumC1noModified) {
+                    if (sumC2Modified > sumC1Modified) {
+                        fraquezaInfo2 = `Embora o status total seja maior, o tipo ${type2} perde para o tipo ${type1} no elemento.`;
+                        marginFraqueza2.style.display = 'none';
+                    } else {
+                        fraquezaInfo2 = `Status total maior, porém, o tipo ${type2} perde para o tipo ${type1} no elemento.`;
+                        marginFraqueza2.style.display = 'none';
+                    }
+                } else if (sumC2noModified === sumC1noModified) {
+                    fraquezaInfo2 = `Empate, pois os status totais de ambos são iguais.`;
+                    marginFraqueza2.style.display = 'block';
+                } else {
+                    if (sumC2Modified > sumC1Modified) {
+                        fraquezaInfo2 = `Embora o status total seja menor, o tipo ${type2} ganha do tipo ${type1} no elemento.`;
+                        marginFraqueza2.style.display = 'none';
+                    } else {
+                        fraquezaInfo2 = `Além do status total ser menor, o tipo ${type2} perde para o tipo ${type1} no elemento.`;
+                        marginFraqueza2.style.display = 'none';
+                    }
+                }
             }
         });
     });
 
     if (!fraquezaInfo1) {
-        fraquezaInfo1 = '-';
+        fraquezaInfo1 =
+            'Não tem fraqueza contra o(s) elemento(s) do adversário.';
+        marginFraqueza1.style.display = 'block';
     }
     if (!fraquezaInfo2) {
-        fraquezaInfo2 = '-';
+        fraquezaInfo2 =
+            'Não tem fraqueza contra o(s) elemento(s) do adversário.';
+        marginFraqueza2.style.display = 'block';
     }
 
     return [sumC1Modified, sumC2Modified, fraquezaInfo1, fraquezaInfo2];
