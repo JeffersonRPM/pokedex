@@ -899,7 +899,12 @@
     }
 
     .div-fraquezas {
-        margin-top: 4%;
+        margin-top: 1.5%;
+    }
+
+    .fraquezaInfo1,
+    .fraquezaInfo2 {
+        font-size: 14px;
     }
 
     .i-fraquezas-message {
